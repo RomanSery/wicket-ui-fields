@@ -4,10 +4,9 @@ package org.coderdreams.wicketfields.fields.bool;
 import org.apache.wicket.markup.html.form.Radio;
 import org.apache.wicket.markup.html.form.RadioGroup;
 import org.apache.wicket.model.Model;
-import org.coderdreams.wicketfields.model.YesNoUnknownChoice;
-
 import org.coderdreams.wicketfields.BaseUiField;
 import org.coderdreams.wicketfields.FieldArgs;
+import org.coderdreams.wicketfields.model.YesNoUnknownChoice;
 
 public class YesNoUnknownField extends BaseUiField<YesNoUnknownChoice> {
 

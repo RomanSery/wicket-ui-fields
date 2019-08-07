@@ -5,10 +5,9 @@ import java.math.BigDecimal;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.util.convert.IConverter;
-import org.coderdreams.wicketfields.util.MoneyConverter;
-
 import org.coderdreams.wicketfields.BaseUiField;
 import org.coderdreams.wicketfields.FieldArgs;
+import org.coderdreams.wicketfields.util.MoneyConverter;
 
 
 public class MoneyField extends BaseUiField<BigDecimal> {

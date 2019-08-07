@@ -6,7 +6,6 @@ import org.apache.wicket.ajax.AbstractDefaultAjaxBehavior;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.OnChangeAjaxBehavior;
 import org.apache.wicket.util.string.StringValue;
-
 import org.coderdreams.wicketfields.FieldArgs;
 import org.coderdreams.wicketfields.IAjaxUiField;
 import org.coderdreams.wicketfields.util.LocalDateConverter;

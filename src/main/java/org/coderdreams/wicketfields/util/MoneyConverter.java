@@ -6,8 +6,7 @@ import java.util.Locale;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.wicket.util.convert.converter.AbstractDecimalConverter;
 
-public class MoneyConverter extends AbstractDecimalConverter<BigDecimal>
-{
+public class MoneyConverter extends AbstractDecimalConverter<BigDecimal> {
     private static final long serialVersionUID = 1L;
     private static final String dollarSign = "$";
 
@@ -18,8 +17,7 @@ public class MoneyConverter extends AbstractDecimalConverter<BigDecimal>
     }
 
     @Override
-    public BigDecimal convertToObject(final String value, final Locale locale)
-    {
+    public BigDecimal convertToObject(final String value, final Locale locale) {
         if(value != null) {
             return parse(StringUtils.replace(value, "$", ""), null, null, locale);
         }
@@ -32,6 +30,5 @@ public class MoneyConverter extends AbstractDecimalConverter<BigDecimal>
             return "";
         }
         return dollarSign + super.convertToString(value, locale);
-
     }
 }

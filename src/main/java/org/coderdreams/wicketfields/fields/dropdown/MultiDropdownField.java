@@ -8,7 +8,6 @@ import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.markup.html.form.ListMultipleChoice;
 import org.apache.wicket.model.IModel;
-
 import org.coderdreams.wicketfields.BaseUiField;
 import org.coderdreams.wicketfields.FieldArgs;
 

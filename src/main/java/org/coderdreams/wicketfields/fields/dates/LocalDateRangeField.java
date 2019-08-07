@@ -1,18 +1,14 @@
 package org.coderdreams.wicketfields.fields.dates;
 
 import org.apache.wicket.markup.html.form.FormComponent;
-import org.coderdreams.wicketfields.DateService;
-import org.coderdreams.wicketfields.model.LocalDateRangeModel;
-
 import org.coderdreams.wicketfields.BaseUiField;
 import org.coderdreams.wicketfields.FieldArgs;
-import org.coderdreams.wicketfields.internal.LocalDateRangePickerControl;
+import org.coderdreams.wicketfields.fields.dates.internal.LocalDateRangePickerControl;
+import org.coderdreams.wicketfields.model.LocalDateRangeModel;
+import org.coderdreams.wicketfields.util.DateUtils;
 
 public class LocalDateRangeField extends BaseUiField<LocalDateRangeModel> {
-	
 	private static final long serialVersionUID = 1L;	
-
-	private DateService dateService;
 
     public LocalDateRangeField(FieldArgs args) {
         super(args);
@@ -21,13 +17,13 @@ public class LocalDateRangeField extends BaseUiField<LocalDateRangeModel> {
 	@Override
 	protected void initField() {
 
-        LocalDateRangePickerControl fieldInput = new LocalDateRangePickerControl("fieldInput", model.getObject(), false, fieldLabel);
+        LocalDateRangePickerControl fieldInput = new LocalDateRangePickerControl("fieldInput", model.getObject(), fieldLabel);
         addOrReplace(fieldInput.setOutputMarkupId(true));
 	}
 
     @Override
     protected String getDisabledLbl() {
-        return model != null && model.getObject() != null ? dateService.format(model.getObject().getStartDateModel().getObject()) + " - " + dateService.format(model.getObject().getEndDateModel().getObject())  : "";
+        return model != null && model.getObject() != null ? DateUtils.format(model.getObject().getStartDateModel().getObject()) + " - " + DateUtils.format(model.getObject().getEndDateModel().getObject())  : "";
 	}
     @Override
     protected String getInnerHtml() {

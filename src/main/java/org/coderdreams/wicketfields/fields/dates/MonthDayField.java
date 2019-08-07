@@ -3,16 +3,16 @@ package org.coderdreams.wicketfields.fields.dates;
 
 import java.time.MonthDay;
 
-import org.coderdreams.wicketfields.DateService;
+import org.apache.wicket.util.convert.IConverter;
 import org.coderdreams.wicketfields.BaseUiField;
 import org.coderdreams.wicketfields.FieldArgs;
-import org.coderdreams.wicketfields.internal.MonthDayTextField;
-import org.coderdreams.wicketfields.internal.MonthDayPickerControl;
+import org.coderdreams.wicketfields.fields.dates.internal.MonthDayPickerControl;
+import org.coderdreams.wicketfields.fields.dates.internal.MonthDayTextField;
+import org.coderdreams.wicketfields.util.DateUtils;
+import org.coderdreams.wicketfields.util.MonthDayConverter;
 
 public class MonthDayField extends BaseUiField<MonthDay> {
 	private static final long serialVersionUID = 1L;
-	private DateService dateService;
-	
 	private MonthDayPickerControl fieldInput;
 
     public MonthDayField(FieldArgs args) {
@@ -21,11 +21,15 @@ public class MonthDayField extends BaseUiField<MonthDay> {
 	
 	@Override
 	protected void initField() {
-		fieldInput = new MonthDayPickerControl("fieldInput", model, false, fieldLabel, dateService);
+		fieldInput = new MonthDayPickerControl("fieldInput", model, fieldLabel, getConverter());
         addOrReplace(fieldInput.setOutputMarkupId(true));
 	}
 
-    @Override protected String getDisabledLbl() { return model != null && model.getObject() != null ? dateService.format(model.getObject()) : ""; }
+	protected IConverter<MonthDay> getConverter() {
+        return new MonthDayConverter();
+    }
+
+    @Override protected String getDisabledLbl() { return model != null && model.getObject() != null ? DateUtils.format(model.getObject()) : ""; }
     @Override public Class<MonthDay> getDefiniteType() { return MonthDay.class; }
     @Override
     protected String getInnerHtml() {

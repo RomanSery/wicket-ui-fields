@@ -5,18 +5,14 @@ import java.time.format.DateTimeFormatter;
 import java.util.Locale;
 
 import org.apache.wicket.util.convert.IConverter;
-import org.apache.wicket.util.lang.Args;
 
 public class LocalDateConverter implements IConverter<LocalDate> {
-
     private static final long serialVersionUID = 1L;
-
-    public static final String DEFAULT_PATTERN = "MM/dd/yyyy";
-
+    private static final String DEFAULT_PATTERN = "MM/dd/yyyy";
     private final String pattern;
 
     public LocalDateConverter() {
-        this(DEFAULT_PATTERN);
+        this.pattern = DEFAULT_PATTERN;
     }
 
     public static LocalDate convert(String str) {
@@ -25,10 +21,6 @@ public class LocalDateConverter implements IConverter<LocalDate> {
         } catch (Exception e) {
             return null;
         }
-    }
-
-    public LocalDateConverter(String pattern) {
-        this.pattern = Args.notNull(pattern, "Pattern");
     }
 
     private DateTimeFormatter getFormatter() {
@@ -48,6 +40,4 @@ public class LocalDateConverter implements IConverter<LocalDate> {
     public String convertToString(LocalDate value, Locale locale) {
         return value == null ? "" : getFormatter().format(value);
     }
-
-
 }

@@ -1,10 +1,9 @@
-package org.coderdreams.wicketfields;
+package org.coderdreams.wicketfields.util;
 
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.LocalTime;
 import java.time.MonthDay;
-import java.time.ZoneId;
 import java.time.format.DateTimeFormatter;
 
 import org.apache.commons.lang3.StringUtils;
@@ -12,36 +11,28 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
-public class DateService {
-	private static final Logger log = LoggerFactory.getLogger( DateService.class ) ;
-	private static final String defaultTimeZone = "America/New_York";
-	private static ZoneId displayTimeZone = null;
-	
+public class DateUtils {
+	private static final Logger log = LoggerFactory.getLogger( DateUtils.class ) ;
+
 	private static final DateTimeFormatter f1 = DateTimeFormatter.ofPattern("h:mm a");
 	private static final DateTimeFormatter f2 = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 	private static final DateTimeFormatter f3 = DateTimeFormatter.ofPattern("MM/dd/yyyy h:mm a");
 	private static final DateTimeFormatter f8 = DateTimeFormatter.ofPattern("MM/dd");
-	private static final DateTimeFormatter f9 = DateTimeFormatter.ofPattern("MM/yyyy");
 
-    public String format(LocalDateTime date) { return format(date, true); }
-	public String format(LocalDateTime date, boolean displayInLocalTimeZone) {
+	public static String format(LocalDateTime date) {
 		if(date == null) {
 		    return "";
         }
-		if(displayInLocalTimeZone) {
-			return f3.format(date.atZone(ZoneId.systemDefault()).withZoneSameInstant(getDisplayTimeZone()));
-		} else {
-			return f3.format(date);
-		}
+		return f3.format(date);
 	}
 
-	public String format(LocalTime d) {
+	public static String format(LocalTime d) {
 		if(d == null) {
 		    return "";
         }
 	    return f1.format(d);
 	}
-	public String format(MonthDay d) {
+	public static String format(MonthDay d) {
 		if(d == null) {
 		    return "";
         }
@@ -49,7 +40,7 @@ public class DateService {
 	}
 
 
-	public String format(LocalDate date) {
+	public static String format(LocalDate date) {
 		if(date == null) {
 		    return "";
         }
@@ -57,7 +48,7 @@ public class DateService {
 	}
 
 
-    public LocalDateTime parse2(String str) {
+    static LocalDateTime parse2(String str) {
         if (StringUtils.isBlank(str)) return null;
 
         try {
@@ -68,7 +59,7 @@ public class DateService {
         return null;
     }
 
-    public LocalTime parseLocalTime(String str) {
+    static LocalTime parseLocalTime(String str) {
         if (StringUtils.isBlank(str)) return null;
 
         try {
@@ -79,7 +70,7 @@ public class DateService {
         return null;
     }
 
-    public MonthDay parseMonthDay(String str) {
+    static MonthDay parseMonthDay(String str) {
         if (StringUtils.isBlank(str)) return null;
 
         try {
@@ -90,11 +81,4 @@ public class DateService {
         return null;
     }
 
-	public static ZoneId getDisplayTimeZone() {
-
-		if(displayTimeZone == null) {
-			displayTimeZone = ZoneId.of(defaultTimeZone);
-		}
-		return displayTimeZone;
-	}
 }

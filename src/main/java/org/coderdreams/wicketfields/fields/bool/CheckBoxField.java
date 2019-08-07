@@ -1,7 +1,6 @@
 package org.coderdreams.wicketfields.fields.bool;
 
 import org.apache.wicket.markup.html.form.CheckBox;
-
 import org.coderdreams.wicketfields.BaseUiField;
 import org.coderdreams.wicketfields.FieldArgs;
 

@@ -2,7 +2,6 @@ package org.coderdreams.wicketfields.fields.bool;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.ajax.form.AjaxFormComponentUpdatingBehavior;
-
 import org.coderdreams.wicketfields.FieldArgs;
 import org.coderdreams.wicketfields.IAjaxUiField;
 
