@@ -103,6 +103,10 @@ public final class FieldArgs {
             this.model = model;
         }
 
+        public static Builder of(String id, String fieldLabel, IModel model) {
+            return new Builder(id, fieldLabel, model);
+        }
+
         public Builder model(IModel model) {
             this.model = model;
             return this;
