@@ -16,13 +16,13 @@ import org.apache.wicket.model.Model;
 import org.coderdreams.wicketfields.BaseUiField;
 import org.coderdreams.wicketfields.FieldArgs;
 
-public class GroupedDropdownPanel extends BaseUiField<String> {
+public class GroupedDropdownField extends BaseUiField<String> {
 	private static final long serialVersionUID = 1L;	
 
 	private Select<String> fieldInput;
 	private IModel<Map<String, List<String>>> choiceList;
 
-    public GroupedDropdownPanel(FieldArgs args) {
+    public GroupedDropdownField(FieldArgs args) {
         super(args);
     }
 

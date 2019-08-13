@@ -38,8 +38,85 @@
         <h1>UI Fields</h1>
     </div>
 
-    <form wicket:id="fieldsForm">
-        <span wicket:id="TxtField"></span>
+    <form wicket:id="fieldsForm" class="form-horizontal">
+
+        <div class="accordion" id="accordionExample">
+            <div class="card">
+                <div class="card-header" id="headingOne"><h2 class="mb-0"><button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Text Fields</button></h2></div>
+                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <span wicket:id="AjaxTextAreaWithCounterField"></span>
+                        <span wicket:id="AjaxTxtField"></span>
+                        <span wicket:id="LabelField"></span>
+                        <span wicket:id="LinkField"></span>
+                        <span wicket:id="TextAreaField"></span>
+                        <span wicket:id="TextAreaWithCounterField"></span>
+                        <span wicket:id="TxtField"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingTwo"><h2 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Dropdown fields</button></h2></div>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <span wicket:id="AjaxDropdownField"></span>
+                        <span wicket:id="AjaxGroupedDropdownField"></span>
+                        <span wicket:id="AjaxMultiDropdownField"></span>
+                        <span wicket:id="DropdownField"></span>
+                        <span wicket:id="GroupedDropdownField"></span>
+                        <span wicket:id="MultiDropdownField"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingThree"><h2 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Date Fields</button></h2></div>
+                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <span wicket:id="AjaxLocalDateField"></span>
+                        <span wicket:id="AjaxTimeField"></span>
+                        <span wicket:id="LocalDateField"></span>
+                        <span wicket:id="LocalDateRangeField"></span>
+                        <span wicket:id="LocalDateTimeField"></span>
+                        <span wicket:id="MonthDayField"></span>
+                        <span wicket:id="TimeField"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFour"><h2 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Numeric Fields</button></h2></div>
+                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <span wicket:id="AjaxMoneyField"></span>
+                        <span wicket:id="AjaxNumberSpinnerField"></span>
+                        <span wicket:id="MoneyField"></span>
+                        <span wicket:id="NumberSpinnerField"></span>
+                    </div>
+                </div>
+            </div>
+            <div class="card">
+                <div class="card-header" id="headingFive"><h2 class="mb-0"><button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Checkbox/radio Fields</button></h2></div>
+                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                    <div class="card-body">
+                        <span wicket:id="AjaxCheckBoxField"></span>
+                        <span wicket:id="AjaxCheckBoxGroupField"></span>
+                        <span wicket:id="AjaxCheckBoxReverseField"></span>
+                        <span wicket:id="AjaxRadioField"></span>
+                        <span wicket:id="AjaxSwitchField"></span>
+                        <span wicket:id="AjaxYesNoUnknownField"></span>
+                        <span wicket:id="CheckBoxField"></span>
+                        <span wicket:id="CheckBoxGroupField"></span>
+                        <span wicket:id="CheckBoxReverseField"></span>
+                        <span wicket:id="RadioField"></span>
+                        <span wicket:id="YesNoUnknownField"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
 
 
         <div class="clearfix">
@@ -52,7 +129,6 @@
 
 </main><!-- /.container -->
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
 

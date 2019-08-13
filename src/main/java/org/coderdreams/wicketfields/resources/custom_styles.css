@@ -1,0 +1,93 @@
+
+
+input[type=checkbox].ace-checkbox-2 + .lbl::before,
+input[type=radio].ace-checkbox-2 + .lbl::before {
+	margin-right: 5px;
+	margin-top: -2px;
+}
+.lbl-checkbox {
+	padding-top: 5px;
+}
+
+.control-displayValue {
+	padding-top: 6px;
+	word-wrap:break-word
+}
+
+/* this is necessary so that the dropdown datepicker will appear above radio buttons if they happen to be overlapping,
+because the ace default sets the z-index for the radio buttons as 12. */
+.datepicker-dropdown {
+	z-index: 20 !important;
+}
+
+div.popover {
+	width: 275px;
+}
+
+.datepicker,
+.date-picker {
+	z-index: 10001 !important;
+}
+
+@media only screen and (max-width: 580px) {
+ .form-horizontal .control-label {
+    float: none;
+    padding-top: 0;
+    text-align: left;
+    width: auto;
+ }
+ .form-horizontal .controls {
+	margin-left: 0;
+ }
+}
+
+.form-horizontal .control-label { 
+    padding-top: 0px;    
+}
+
+.mirror-y {
+    display:inline-block; 
+    -moz-transform: matrix(1, 0, 0, -1, 0, 0);
+    -webkit-transform: matrix(1, 0, 0, -1, 0, 0);
+    -o-transform:matrix(1, 0, 0, -1, 0, 0);
+    -prefix-transform: scale(-1, 1);
+    transform: rotateX(180deg);
+}
+
+.app-popover-fw {
+  max-width: none;
+  width: auto;
+}
+
+input.date-picker .date-time-only-picker {
+	margin-left: -12px;
+}
+
+div.select2-container {
+	padding-right: 0px;
+	padding-left: 0px;
+}
+
+.select2-container {
+	width: 100% !important
+}
+
+.form-group div.view-label {
+	top: 6.5px;
+}
+
+.modal.aside-dark .modal-content {
+	background-color: #f3f3f3;
+}
+
+.select2-container--open{
+	z-index: 4;
+}
+
+.modal-backdrop ~ .select2-container--open{
+	z-index: auto;
+}
+
+.bootstrap-datetimepicker-widget{
+	z-index: 4 !important;
+}

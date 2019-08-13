@@ -20,13 +20,13 @@ import org.coderdreams.wicketfields.BaseUiField;
 import org.coderdreams.wicketfields.FieldArgs;
 import org.coderdreams.wicketfields.IAjaxUiField;
 
-public class AjaxGroupedDropdownPanel<K extends Serializable, T extends Serializable> extends BaseUiField<T> implements IAjaxUiField {
+public class AjaxGroupedDropdownField<K extends Serializable, T extends Serializable> extends BaseUiField<T> implements IAjaxUiField {
 	private static final long serialVersionUID = 1L;	
 
 	private Select<T> fieldInput;
 	private IModel<Map<K, List<T>>> choiceList;
 
-    public AjaxGroupedDropdownPanel(FieldArgs args) {
+    public AjaxGroupedDropdownField(FieldArgs args) {
         super(args);
     }
 
