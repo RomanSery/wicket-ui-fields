@@ -180,7 +180,8 @@ public class UiFieldsDemo extends WebPage {
     private void addTxtFields() {
 
         fieldsForm.addOrReplace(new AjaxTextAreaWithCounterField(FieldArgs.Builder.of(
-                "AjaxTextAreaWithCounterField", "AjaxTextAreaWithCounterField", LambdaModel.of(formData::getAjaxTextAreaWithCounterValue, formData::setAjaxTextAreaWithCounterValue)).build()));
+                "AjaxTextAreaWithCounterField", "AjaxTextAreaWithCounterField", LambdaModel.of(formData::getAjaxTextAreaWithCounterValue, formData::setAjaxTextAreaWithCounterValue))
+                .maxLength(500).build()));
 
         fieldsForm.addOrReplace(new AjaxTxtField<String>(FieldArgs.Builder.of(
                 "AjaxTxtField", "AjaxTxtField", LambdaModel.of(formData::getAjaxTxtValue, formData::setAjaxTxtValue)).build()));
@@ -195,7 +196,8 @@ public class UiFieldsDemo extends WebPage {
                 "TextAreaField", "TextAreaField", LambdaModel.of(formData::getTextAreaValue, formData::setTextAreaValue)).build()));
 
         fieldsForm.addOrReplace(new TextAreaWithCounterField(FieldArgs.Builder.of(
-                "TextAreaWithCounterField", "TextAreaWithCounterField", LambdaModel.of(formData::getTextAreaWithCounterValue, formData::setTextAreaWithCounterValue)).build()));
+                "TextAreaWithCounterField", "TextAreaWithCounterField", LambdaModel.of(formData::getTextAreaWithCounterValue, formData::setTextAreaWithCounterValue))
+                .maxLength(200).build()));
 
         fieldsForm.addOrReplace(new TxtField<String>(FieldArgs.Builder.of(
                 "TxtField", "TxtField", LambdaModel.of(formData::getTxtValue, formData::setTxtValue)).build()));

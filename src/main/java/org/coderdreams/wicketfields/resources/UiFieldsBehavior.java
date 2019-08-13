@@ -15,12 +15,20 @@ public class UiFieldsBehavior extends Behavior {
 
     @Override
     public void renderHead(final Component component, final IHeaderResponse response) {
+        renderCss(component, response);
+        renderJsScripts(component, response);
+        renderOnDomReadyScript(component, response);
+    }
+
+    protected void renderCss(final Component component, final IHeaderResponse response) {
         response.render(css("select2.min.css"));
         response.render(css("bootstrap-datetimepicker.css"));
         response.render(css("datepicker.css"));
         response.render(css("select2-custom.css"));
         response.render(css("custom_styles.css"));
+    }
 
+    protected void renderJsScripts(final Component component, final IHeaderResponse response) {
         response.render(js("moment.min.js"));
         response.render(js("select2.min.js"));
         response.render(js("bootstrap-datepicker.js"));
@@ -29,38 +37,18 @@ public class UiFieldsBehavior extends Behavior {
         response.render(js("jquery.maskMoney.min.js"));
         response.render(js("bootstrap-datetimepicker.min.js"));
         response.render(js("jquery.inputmask.bundle.min.js"));
-
-
-
-//		<script src="javascript/date-time/bootstrap-datepicker.min.js"></script>
-//		<script src="javascript/jquery.maskedinput.min.js"></script>
-//        <script src="javascript/jquery.inputmask.bundle.min.js"></script>
-//		<script src="javascript/date-time/moment.min.js"></script>
-//		<script src="javascript/date-time/bootstrap-datetimepicker.js"></script>
-//		<script src="javascript/jquery.alphanum.js"></script>
-//		<script src="javascript/jquery.nicescroll.min.js"></script>
-//		<script src="javascript/autocomplete/jquery.auto-complete.min.js"></script>
-//		<script src="javascript/bootstrap-hover-dropdown.min.js"></script>
-//		<script src="javascript/jquery.maskMoney.min.js"></script>
-//		<script src="libs/clipboard.min.js"></script>
-//
-//		<!-- ace settings handler -->
-//		<script src="dist/js/ace-extra.min.js?v=3"></script>
-//		<script src="javascript/atc.min.js"></script>
-//		<script src="javascript/bluebird.min.js"></script>
-//		<script src="javascript/velocity.min.js"></script>
-
-
         response.render(js("common_scripts.js"));
-
-        response.render(OnDomReadyHeaderItem.forScript("initClientSideScripts()"));
     }
 
-    private static JavaScriptHeaderItem js(String resource) {
+    protected void renderOnDomReadyScript(final Component component, final IHeaderResponse response) {
+        response.render(OnDomReadyHeaderItem.forScript("wicketUiFieldScripts.initClientSideScripts()"));
+    }
+
+    protected static JavaScriptHeaderItem js(String resource) {
         return JavaScriptHeaderItem.forReference(new PackageResourceReference(UiFieldsBehavior.class, resource));
     }
 
-    private static CssReferenceHeaderItem css(String resource) {
+    protected static CssReferenceHeaderItem css(String resource) {
         return CssHeaderItem.forReference(new PackageResourceReference(UiFieldsBehavior.class, resource));
     }
 
