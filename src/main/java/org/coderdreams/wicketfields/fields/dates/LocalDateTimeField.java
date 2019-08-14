@@ -32,7 +32,7 @@ public class LocalDateTimeField extends BaseUiField<LocalDateTime> {
     @Override public Class<LocalDateTime> getDefiniteType() { return LocalDateTime.class; }
     @Override
     protected String getInnerHtml() {
-        return "<div class=\"col-xs-10\" wicket:id=\"fieldInput\" style=\"padding-left:0px;\"></div> ";
+        return "<div class=\"col-xs-10 wf-localdatetime-field\" wicket:id=\"fieldInput\" style=\"padding-left:0px;\"></div> ";
     }
 
 	@Override

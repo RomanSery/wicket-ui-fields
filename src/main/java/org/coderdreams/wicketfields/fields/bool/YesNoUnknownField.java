@@ -34,7 +34,7 @@ public class YesNoUnknownField extends BaseUiField<YesNoUnknownChoice> {
     @Override public Class<YesNoUnknownChoice> getDefiniteType() { return YesNoUnknownChoice.class; }
     @Override
     protected String getInnerHtml() {
-        return "<div wicket:id=\"myRadioGroup\">" +
+        return "<div wicket:id=\"myRadioGroup\" class=\"wf-yesnounknown-field\">" +
                 "<input type=\"radio\" wicket:id=\"myRadioChoiceYes\" /> <span class=\"lbl\">Yes</span>&nbsp; " +
                 "<input type=\"radio\" wicket:id=\"myRadioChoiceNo\" /> <span class=\"lbl\">No</span>&nbsp; " +
 				"<input type=\"radio\" wicket:id=\"myRadioChoiceUnknown\" /> <span class=\"lbl\">Unknown</span> " +

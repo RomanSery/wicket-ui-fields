@@ -85,7 +85,7 @@ public class AjaxGroupedDropdownField<K extends Serializable, T extends Serializ
     @Override protected String getDisabledLbl() { return (model.getObject() == null ? "" : convertToString(model.getObject())); }
     @Override
     protected String getInnerHtml() {
-        return "<div class=\"col-xs-10\" style=\"padding:0\">" +
+        return "<div class=\"col-xs-10 wf-grouped-dropdown-field\" style=\"padding:0\">" +
                 " <select wicket:id=\"fieldInput\">" +
                 "  <option value=\"\">Select one</option>" +
                 " <optgroup wicket:id=\"optGrps\"> <option wicket:id=\"opts\"><span wicket:id=\"txt\"></span></option> </optgroup>" +

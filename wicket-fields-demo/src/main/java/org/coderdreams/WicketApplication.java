@@ -20,7 +20,6 @@ public class WicketApplication extends WebApplication {
 
 		getPageSettings().setVersionPagesByDefault(false);
 		getStoreSettings().setInmemoryCacheSize(0);
-		//getJavaScriptLibrarySettings().setJQueryReference(new UrlResourceReference(Url.parse("https://code.jquery.com/jquery-3.3.1.slim.min.js")));
 		getRequestCycleSettings().setRenderStrategy(RequestCycleSettings.RenderStrategy.ONE_PASS_RENDER);
 		getRequestCycleSettings().setTimeout(Duration.minutes(5));
 		this.getExceptionSettings().setAjaxErrorHandlingStrategy(ExceptionSettings.AjaxErrorStrategy.REDIRECT_TO_ERROR_PAGE);

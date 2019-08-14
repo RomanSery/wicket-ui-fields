@@ -45,7 +45,7 @@ public class RadioField extends BaseUiField<Boolean> {
     @Override public Class<Boolean> getDefiniteType() { return Boolean.class; }
     @Override
     protected String getInnerHtml() {
-        return "<div wicket:id=\"myRadioGroup\">" +
+        return "<div wicket:id=\"myRadioGroup\" class=\"wf-radio-field\">" +
                 "<input type=\"radio\" wicket:id=\"myRadioChoiceYes\" /> " +
                 "<span class=\"lbl\" wicket:id=\"myYesText\">Yes</span> " +
                 "<input type=\"radio\" wicket:id=\"myRadioChoiceNo\" /> " +

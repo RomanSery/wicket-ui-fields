@@ -39,8 +39,11 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
 	static final int DEF_R = 8;
 
     private final static String markup =
-            "<wicket:panel>" +
-                    "<div class=\"form-group row\"><label class=\"control-label col-sm-{LCLASS}\"> <span wicket:id=\"fieldLabel\"></span> </label><div class=\"{RCLASS}\">{INNERHTML} {DISABLEDHTML}</div></div>" +
+                    "<wicket:panel>" +
+                    "<div class=\"form-group row\">" +
+                    "   <label class=\"control-label col-sm-{LCLASS}\"> <span wicket:id=\"fieldLabel\"></span> </label>" +
+                    "   <div class=\"{RCLASS}\">{INNERHTML} {DISABLEDHTML}</div>" +
+                    "</div>" +
                     "</wicket:panel>";
     private final static String disabledHtml = "<div wicket:id=\"fieldInputDisabled\" class=\"col-xs-10\"></div>";
     private final static String REQUIRED = "<span class=\"text-danger\">*</span>";
@@ -66,7 +69,7 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
         this.forceDisable = args.isForceDisable();
         this.model = args.getModel();
         this.propertiesId = args.getPropertiesId();
-        this.fieldLabel = args.getPropertiesId() == null ? args.getFieldLabel() : getString(args.getPropertiesId() + ".lbl", null, args.getFieldLabel());
+        this.fieldLabel = args.getPropertiesId() == null ? args.getFieldLabel() : getString(propertiesId + ".lbl", null, args.getFieldLabel());
         this.l = args.getL();
         this.r = args.getR();
         this.markupId = args.getMarkupId();

@@ -29,7 +29,7 @@ public class LabelField<T> extends BaseUiField<T> {
 	@Override protected boolean hasDisabledLbl() { return false; }
     @Override
     protected String getInnerHtml() {
-        return "<div wicket:id=\"fieldInput\" class=\"col-xs-10\" style=\"font-weight:400; font-size:14px;\"></div>";
+        return "<div wicket:id=\"fieldInput\" class=\"wf-label-field\"></div>";
     }
 
 	@Override

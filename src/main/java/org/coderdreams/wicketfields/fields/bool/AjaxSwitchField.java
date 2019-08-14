@@ -37,7 +37,7 @@ public class AjaxSwitchField extends BaseUiField<Boolean> implements IAjaxUiFiel
     @Override public Class<Boolean> getDefiniteType() { return Boolean.class; }
     @Override
     protected String getInnerHtml() {
-        return "<input type=\"checkbox\" class=\"ace ace-switch ace-switch-5\" wicket:id=\"fieldInput\" /> <div class=\"lbl middle\"></div>";
+        return "<input type=\"checkbox\" class=\"custom-control-input wf-switch-field\" wicket:id=\"fieldInput\" /> <div class=\"lbl middle\"></div>";
     }
 	@Override public CheckBox getField() {
 		return fieldInput;

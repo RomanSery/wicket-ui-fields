@@ -12,7 +12,7 @@ public class CheckBoxReverseField extends CheckBoxField {
     @Override
     protected String getBaseMarkup() {
 	    return "<wicket:panel>" +
-                "<div class=\"form-group\"><label class=\"control-label col-sm-{LCLASS}\"> {INNERHTML} {DISABLEDHTML} </label><div class=\"{RCLASS}\"> <span wicket:id=\"fieldLabel\"></span> </div></div>" +
+                "<div class=\"form-group wf-checkbox-reverse-field\"><label class=\"control-label col-sm-{LCLASS}\"> {INNERHTML} {DISABLEDHTML} </label><div class=\"{RCLASS}\"> <span wicket:id=\"fieldLabel\"></span> </div></div>" +
                 "</wicket:panel>";
 	}
 }

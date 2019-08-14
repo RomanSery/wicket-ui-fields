@@ -1,5 +1,6 @@
 package org.coderdreams;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -7,10 +8,11 @@ import org.apache.wicket.event.Broadcast;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.model.LambdaModel;
+import org.apache.wicket.model.LoadableDetachableModel;
+import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.coderdreams.wicketfields.FieldArgs;
-import org.coderdreams.wicketfields.resources.UiFieldsBehavior;
 import org.coderdreams.wicketfields.event.InitPanelFieldsEvent;
 import org.coderdreams.wicketfields.fields.bool.AjaxCheckBoxField;
 import org.coderdreams.wicketfields.fields.bool.AjaxCheckBoxGroupField;
@@ -48,6 +50,8 @@ import org.coderdreams.wicketfields.fields.text.TextAreaField;
 import org.coderdreams.wicketfields.fields.text.TextAreaWithCounterField;
 import org.coderdreams.wicketfields.fields.text.TxtField;
 import org.coderdreams.wicketfields.form.SingleClickIndicatingAjaxButton;
+import org.coderdreams.wicketfields.resources.UiFieldsBehavior;
+import org.coderdreams.wicketfields.util.DateUtils;
 
 public class UiFieldsDemo extends WebPage {
 	private static final long serialVersionUID = 1L;
@@ -80,6 +84,7 @@ public class UiFieldsDemo extends WebPage {
 
         send(this, Broadcast.BREADTH, new InitPanelFieldsEvent(null));
     }
+
 
     private void addBoolFields() {
         fieldsForm.addOrReplace(new AjaxCheckBoxField(FieldArgs.Builder.of(
@@ -187,10 +192,10 @@ public class UiFieldsDemo extends WebPage {
                 "AjaxTxtField", "AjaxTxtField", LambdaModel.of(formData::getAjaxTxtValue, formData::setAjaxTxtValue)).build()));
 
         fieldsForm.addOrReplace(new LabelField(FieldArgs.Builder.of(
-                "LabelField", "LabelField", null).build()));
+                "LabelField", "LabelField", LambdaModel.of(() -> DateUtils.format(LocalDateTime.now()))).build()));
 
         fieldsForm.addOrReplace(new LinkField(FieldArgs.Builder.of(
-                "LinkField", "LinkField", null).pageClass(UiFieldsDemo.class).build()));
+                "LinkField", "LinkField", null).pageClass(UiFieldsDemo.class).txtModel(Model.of("Demo page")).build()));
 
         fieldsForm.addOrReplace(new TextAreaField(FieldArgs.Builder.of(
                 "TextAreaField", "TextAreaField", LambdaModel.of(formData::getTextAreaValue, formData::setTextAreaValue)).build()));

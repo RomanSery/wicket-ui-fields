@@ -48,7 +48,7 @@ public class TextAreaWithCounterField extends BaseUiField<String> {
     @Override public Class<String> getDefiniteType() { return String.class; }
     @Override
     protected String getInnerHtml() {
-        return  "<textarea wicket:id=\"fieldInput\" class=\"col-xs-10 txt-char-counter\"></textarea>" +
+        return  "<textarea wicket:id=\"fieldInput\" class=\"txt-char-counter wf-txt-area-counter-field\"></textarea>" +
                 "<div class=\"clearfix\"></div>" +
                 "<h6 wicket:id=\"countMsg\"></h6>";
     }

@@ -74,7 +74,7 @@ public class MultiDropdownField<T> extends BaseUiField<List<T>> {
 
     @Override
     protected String getInnerHtml() {
-        return "<div class=\"col-xs-10\" style=\"padding:0\"> <select class=\"ie_expand wicket-ui-select2\" multiple=\"multiple\" wicket:id=\"fieldInput\"></select></div>";
+        return "<div class=\"col-xs-10 wf-multi-dropdown-field\" style=\"padding:0\"> <select class=\"ie_expand wicket-ui-select2\" multiple=\"multiple\" wicket:id=\"fieldInput\"></select></div>";
     }
 
 

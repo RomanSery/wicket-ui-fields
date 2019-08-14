@@ -37,7 +37,7 @@ public class TextAreaField extends BaseUiField<String> {
 	}
 
     @Override protected Class getDefiniteType() { return String.class; }
-    @Override protected String getInnerHtml() { return "<textarea wicket:id=\"fieldInput\" class=\"col-xs-10\"></textarea>"; }
+    @Override protected String getInnerHtml() { return "<textarea wicket:id=\"fieldInput\" class=\"wf-txt-area-field\"></textarea>"; }
 
 	@Override
 	public TextArea<String> getField() {

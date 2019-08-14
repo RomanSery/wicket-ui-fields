@@ -33,7 +33,7 @@ public class MonthDayField extends BaseUiField<MonthDay> {
     @Override public Class<MonthDay> getDefiniteType() { return MonthDay.class; }
     @Override
     protected String getInnerHtml() {
-        return "<div class=\"col-xs-10\" wicket:id=\"fieldInput\" style=\"padding-left:0px;\"></div>";
+        return "<div class=\"col-xs-10 wf-monthday-field\" wicket:id=\"fieldInput\" style=\"padding-left:0px;\"></div>";
     }
 	@Override
 	public MonthDayTextField getField() {

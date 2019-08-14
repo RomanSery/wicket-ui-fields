@@ -67,7 +67,7 @@ public class GroupedDropdownField extends BaseUiField<String> {
 
     @Override
     protected String getInnerHtml() {
-        return "<select class=\"col-xs-10\" wicket:id=\"fieldInput\"> <optgroup wicket:id=\"optGrps\"> <option wicket:id=\"opts\"><span wicket:id=\"txt\"></span></option> </optgroup> </select>";
+        return "<select class=\"col-xs-10 wf-grouped-dropdown-field\" wicket:id=\"fieldInput\"> <optgroup wicket:id=\"optGrps\"> <option wicket:id=\"opts\"><span wicket:id=\"txt\"></span></option> </optgroup> </select>";
     }
 
 	@Override

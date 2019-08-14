@@ -23,7 +23,7 @@ public class TxtField<T> extends BaseUiField<T> {
 
     @Override
     protected String getInnerHtml() {
-        return "<input type=\"text\" wicket:id=\"fieldInput\" class=\"col-xs-10\" />";
+        return "<input type=\"text\" wicket:id=\"fieldInput\" class=\"wf-txt-field\" />";
     }
 
     @Override

@@ -23,7 +23,7 @@ public class CheckBoxField extends BaseUiField<Boolean> {
     @Override public Class<Boolean> getDefiniteType() { return Boolean.class; }
     @Override
     protected String getInnerHtml() {
-        return "<input type=\"checkbox\" class=\"ace ace-checkbox-2\" wicket:id=\"fieldInput\" /> <div class=\"lbl\"> </div>";
+        return "<input type=\"checkbox\" class=\"form-check wf-checkbox-field\" wicket:id=\"fieldInput\" /> <div class=\"lbl\"> </div>";
     }
 
     @Override

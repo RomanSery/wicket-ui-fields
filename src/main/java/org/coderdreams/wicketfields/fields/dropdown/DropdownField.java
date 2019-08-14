@@ -62,7 +62,7 @@ public class DropdownField<T> extends BaseUiField<T> {
 
     @Override
     protected String getInnerHtml() {
-        return "<div class=\"col-xs-10\" style=\"padding:0\"><select wicket:id=\"fieldInput\"></select></div>";
+        return "<div class=\"col-xs-10 wf-dropdown-field\" style=\"padding:0\"><select wicket:id=\"fieldInput\"></select></div>";
     }
 
 	@Override

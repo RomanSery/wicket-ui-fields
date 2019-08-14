@@ -44,7 +44,7 @@ public class LinkField<T extends Page> extends BaseUiField<Integer> {
 	@Override protected boolean hasDisabledLbl() { return false; }
     @Override
     protected String getInnerHtml() {
-        return "<a wicket:id=\"fieldInput\" target=\"_blank\" class=\"col-xs-10\"></a>";
+        return "<a wicket:id=\"fieldInput\" target=\"_blank\" class=\"wf-link-field\"></a>";
     }
 
 	@Override

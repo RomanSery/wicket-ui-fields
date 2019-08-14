@@ -27,7 +27,7 @@ public class LocalDateRangeField extends BaseUiField<LocalDateRangeModel> {
 	}
     @Override
     protected String getInnerHtml() {
-        return "<div class=\"col-xs-10\" wicket:id=\"fieldInput\"></div> ";
+        return "<div class=\"col-xs-10 wf-localdaterange-field\" wicket:id=\"fieldInput\"></div> ";
     }
 
 

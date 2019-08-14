@@ -26,6 +26,7 @@ public class UiFieldsBehavior extends Behavior {
         response.render(css("datepicker.css"));
         response.render(css("select2-custom.css"));
         response.render(css("custom_styles.css"));
+
     }
 
     protected void renderJsScripts(final Component component, final IHeaderResponse response) {

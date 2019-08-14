@@ -34,7 +34,7 @@ public class NumberSpinnerField<T extends Number & Comparable<T>> extends BaseUi
 
     @Override
     protected String getInnerHtml() {
-        return "<input type=\"number\" wicket:id=\"fieldInput\" class=\"col-xs-2 text-center\" />";
+        return "<input type=\"number\" wicket:id=\"fieldInput\" class=\"col-xs-2 text-center wf-number-spinner-field\" />";
     }
 
 	@Override
