@@ -38,7 +38,7 @@ public class UiFieldsBehavior extends Behavior {
         response.render(js("jquery.maskMoney.min.js"));
         response.render(js("bootstrap-datetimepicker.min.js"));
         response.render(js("jquery.inputmask.bundle.min.js"));
-        response.render(js("common_scripts.js"));
+        response.render(js("wf_scripts.js"));
     }
 
     protected void renderOnDomReadyScript(final Component component, final IHeaderResponse response) {

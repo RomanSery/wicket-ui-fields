@@ -8,6 +8,7 @@ import org.apache.wicket.request.resource.caching.version.MessageDigestResourceV
 import org.apache.wicket.settings.ExceptionSettings;
 import org.apache.wicket.settings.RequestCycleSettings;
 import org.apache.wicket.util.time.Duration;
+import org.coderdreams.wicketfields.util.WicketFieldsUI;
 
 public class WicketApplication extends WebApplication {
 
@@ -17,6 +18,8 @@ public class WicketApplication extends WebApplication {
 	@Override
 	public void init() {
 		super.init();
+
+		getJavaScriptLibrarySettings().setJQueryReference(new UrlResourceReference(Url.parse("https://code.jquery.com/jquery-3.4.1.min.js")));
 
 		getPageSettings().setVersionPagesByDefault(false);
 		getStoreSettings().setInmemoryCacheSize(0);
@@ -30,6 +33,8 @@ public class WicketApplication extends WebApplication {
 		getDebugSettings().setComponentUseCheck(false);
 		getDebugSettings().setAjaxDebugModeEnabled(false);
 		getMarkupSettings().setStripWicketTags(true);
+
+		WicketFieldsUI.init(this);
 	}
 
 	public Class getHomePage()

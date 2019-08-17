@@ -3,6 +3,7 @@ package org.coderdreams;
 import java.time.LocalDateTime;
 import java.util.List;
 
+import org.apache.commons.text.StringEscapeUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.event.Broadcast;
 import org.apache.wicket.markup.html.WebPage;
@@ -72,11 +73,10 @@ public class UiFieldsDemo extends WebPage {
         addNumericFields();
         addTxtFields();
 
-        fieldsForm.add(new SingleClickIndicatingAjaxButton("saveButton", fieldsForm, true) {
+        fieldsForm.add(new SingleClickIndicatingAjaxButton("saveButton", fieldsForm, true, null) {
             private static final long serialVersionUID = 1L;
-            @Override protected boolean submit(AjaxRequestTarget target) {
+            @Override protected void onSubmit(AjaxRequestTarget target) {
                 //System.out.println(formData.getTxtField());
-                return true;
             }
         });
 
@@ -186,10 +186,20 @@ public class UiFieldsDemo extends WebPage {
 
         fieldsForm.addOrReplace(new AjaxTextAreaWithCounterField(FieldArgs.Builder.of(
                 "AjaxTextAreaWithCounterField", "AjaxTextAreaWithCounterField", LambdaModel.of(formData::getAjaxTextAreaWithCounterValue, formData::setAjaxTextAreaWithCounterValue))
-                .maxLength(500).build()));
+                .maxLength(500).rows(5).propertiesId("AjaxTextAreaWithCounterField").build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxTextAreaWithCounterField onFieldChanged", formData.getAjaxTextAreaWithCounterValue());
+            }
+        });
 
         fieldsForm.addOrReplace(new AjaxTxtField<String>(FieldArgs.Builder.of(
-                "AjaxTxtField", "AjaxTxtField", LambdaModel.of(formData::getAjaxTxtValue, formData::setAjaxTxtValue)).build()));
+                "AjaxTxtField", "AjaxTxtField", LambdaModel.of(formData::getAjaxTxtValue, formData::setAjaxTxtValue)).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxTxtField onFieldChanged", formData.getAjaxTxtValue());
+            }
+        });
 
         fieldsForm.addOrReplace(new LabelField(FieldArgs.Builder.of(
                 "LabelField", "LabelField", LambdaModel.of(() -> DateUtils.format(LocalDateTime.now()))).build()));
@@ -207,5 +217,10 @@ public class UiFieldsDemo extends WebPage {
         fieldsForm.addOrReplace(new TxtField<String>(FieldArgs.Builder.of(
                 "TxtField", "TxtField", LambdaModel.of(formData::getTxtValue, formData::setTxtValue)).build()));
 
+    }
+
+
+    private void showToast(AjaxRequestTarget target, String heading, String txt) {
+        target.appendJavaScript("showToastMsg('"+ StringEscapeUtils.escapeEcmaScript(heading)+"', '"+StringEscapeUtils.escapeEcmaScript(txt)+"');");
     }
 }

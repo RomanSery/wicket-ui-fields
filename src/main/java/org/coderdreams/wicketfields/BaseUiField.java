@@ -191,6 +191,12 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
         }
     }
 
+    protected void clientScripts(AjaxRequestTarget target) {
+        if(target == null) {
+            return;
+        }
+        target.appendJavaScript("wicketUiFieldScripts.initClientSideScripts();");
+    }
 
     protected Class<T> getFormFieldType(Class defaultClass) {
         if(getDefiniteType() != null) {
@@ -279,9 +285,6 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
         }
     }
 
-    protected void clientScripts(AjaxRequestTarget target) {
-        //TODO
-    }
 
     //override to assign additional fields specifc to the component, ex: WysiwygFileUploadPanel
     protected void assignFromArgs(FieldArgs args) {};

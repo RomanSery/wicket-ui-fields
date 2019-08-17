@@ -7,9 +7,11 @@
 
     <link rel="stylesheet" href="css/bootstrap.min.css" />
     <link rel="stylesheet" href="css/font-awesome-407.min.css" />
+    <link rel="stylesheet" href="css/jquery.toast.min.css" />
 
     <script src="js/popper.min.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/jquery.toast.min.js"></script>
 
     <style>
         .bd-placeholder-img {
@@ -31,6 +33,20 @@
             padding-top: 5rem;
         }
     </style>
+
+    <script type="text/javascript">
+
+        function showToastMsg(headingStr, str) {
+            $.toast({
+                heading: headingStr,
+                position: 'top-right',
+                text: str,
+                icon: 'info',
+                loader: false
+            });
+        }
+
+    </script>
 
 </head>
 <body>
@@ -158,7 +174,6 @@
 
 
 </main><!-- /.container -->
-
 
 </body>
 </html>

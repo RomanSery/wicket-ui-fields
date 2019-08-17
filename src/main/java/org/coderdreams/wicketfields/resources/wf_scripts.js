@@ -16,6 +16,8 @@ let wicketUiFieldScripts = {
 		});
 
 		$('span.select2-selection--multiple').addClass('col-xs-10');
+
+
 	},
 
 	initPopoverScripts: function () {
