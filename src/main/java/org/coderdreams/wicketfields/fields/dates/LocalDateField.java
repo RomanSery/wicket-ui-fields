@@ -35,7 +35,7 @@ public class LocalDateField extends BaseUiField<LocalDate> {
 	public LocalDateTextField getField() {
 		return fieldInput.getMyDate();
 	}
-	
+
 	protected LocalDatepickerControl getDatePicker() {
 		return fieldInput;
 	}

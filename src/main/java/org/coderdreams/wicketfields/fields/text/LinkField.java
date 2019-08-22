@@ -52,6 +52,7 @@ public class LinkField<T extends Page> extends BaseUiField<Integer> {
 		return null;
 	}
 
+
 	@Override
 	public boolean isEnabledInHierarchy() {
 		return true;

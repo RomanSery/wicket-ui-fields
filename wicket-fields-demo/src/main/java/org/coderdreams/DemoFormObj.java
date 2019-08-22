@@ -30,7 +30,7 @@ public class DemoFormObj implements Serializable {
     private LocalTime timeValue;
 
     private BigDecimal ajaxMoneyValue;
-    private Integer ajaxNumberSpinnerValue;
+    private Double ajaxNumberSpinnerValue;
     private BigDecimal moneyValue;
     private Integer numberSpinnerValue;
 
@@ -46,12 +46,12 @@ public class DemoFormObj implements Serializable {
     private Boolean radioValue;
     private Boolean yesNoUnknownValue;
 
-    private String ajaxDropdownValue;
-    private List<String> ajaxGroupedDropdownValue;
-    private List<String> ajaxMultiDropdownValue;
-    private String dropdownValue;
-    private List<String> groupedDropdownValue;
-    private List<String> multiDropdownValue;
+    private State ajaxDropdownValue;
+    private String ajaxGroupedDropdownValue;
+    private String groupedDropdownValue;
+    private List<State> ajaxMultiDropdownValue;
+    private State dropdownValue;
+    private List<State> multiDropdownValue;
 
     public String getAjaxTextAreaWithCounterValue() {
         return ajaxTextAreaWithCounterValue;
@@ -160,11 +160,11 @@ public class DemoFormObj implements Serializable {
         this.ajaxMoneyValue = ajaxMoneyValue;
     }
 
-    public Integer getAjaxNumberSpinnerValue() {
+    public Double getAjaxNumberSpinnerValue() {
         return ajaxNumberSpinnerValue;
     }
 
-    public void setAjaxNumberSpinnerValue(Integer ajaxNumberSpinnerValue) {
+    public void setAjaxNumberSpinnerValue(Double ajaxNumberSpinnerValue) {
         this.ajaxNumberSpinnerValue = ajaxNumberSpinnerValue;
     }
 
@@ -272,51 +272,51 @@ public class DemoFormObj implements Serializable {
         this.yesNoUnknownValue = yesNoUnknownValue;
     }
 
-    public String getAjaxDropdownValue() {
+    public State getAjaxDropdownValue() {
         return ajaxDropdownValue;
     }
 
-    public void setAjaxDropdownValue(String ajaxDropdownValue) {
+    public void setAjaxDropdownValue(State ajaxDropdownValue) {
         this.ajaxDropdownValue = ajaxDropdownValue;
     }
 
-    public List<String> getAjaxGroupedDropdownValue() {
+    public String getAjaxGroupedDropdownValue() {
         return ajaxGroupedDropdownValue;
     }
 
-    public void setAjaxGroupedDropdownValue(List<String> ajaxGroupedDropdownValue) {
+    public void setAjaxGroupedDropdownValue(String ajaxGroupedDropdownValue) {
         this.ajaxGroupedDropdownValue = ajaxGroupedDropdownValue;
     }
 
-    public List<String> getAjaxMultiDropdownValue() {
+    public List<State> getAjaxMultiDropdownValue() {
         return ajaxMultiDropdownValue;
     }
 
-    public void setAjaxMultiDropdownValue(List<String> ajaxMultiDropdownValue) {
+    public void setAjaxMultiDropdownValue(List<State> ajaxMultiDropdownValue) {
         this.ajaxMultiDropdownValue = ajaxMultiDropdownValue;
     }
 
-    public String getDropdownValue() {
+    public State getDropdownValue() {
         return dropdownValue;
     }
 
-    public void setDropdownValue(String dropdownValue) {
+    public void setDropdownValue(State dropdownValue) {
         this.dropdownValue = dropdownValue;
     }
 
-    public List<String> getGroupedDropdownValue() {
+    public String getGroupedDropdownValue() {
         return groupedDropdownValue;
     }
 
-    public void setGroupedDropdownValue(List<String> groupedDropdownValue) {
+    public void setGroupedDropdownValue(String groupedDropdownValue) {
         this.groupedDropdownValue = groupedDropdownValue;
     }
 
-    public List<String> getMultiDropdownValue() {
+    public List<State> getMultiDropdownValue() {
         return multiDropdownValue;
     }
 
-    public void setMultiDropdownValue(List<String> multiDropdownValue) {
+    public void setMultiDropdownValue(List<State> multiDropdownValue) {
         this.multiDropdownValue = multiDropdownValue;
     }
 }

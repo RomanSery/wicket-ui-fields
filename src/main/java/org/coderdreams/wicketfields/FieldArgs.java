@@ -19,6 +19,7 @@ public final class FieldArgs {
     private final Class pageClass;
     private final Number min;
     private final Number max;
+    private final Number step;
     private final String yesText;
     private final String noText;
     private final String placeholder;
@@ -39,6 +40,7 @@ public final class FieldArgs {
         this.inputType = builder.inputType;
         this.min = builder.min;
         this.max = builder.max;
+        this.step = builder.step;
         this.choiceList = builder.choiceList;
         this.yesText = builder.yesText;
         this.noText = builder.noText;
@@ -62,6 +64,7 @@ public final class FieldArgs {
     public Class getInputType() { return inputType; }
     public Number getMin() { return min; }
     public Number getMax() { return max; }
+    public Number getStep() { return step; }
     public IModel getChoiceList() { return choiceList; }
     public String getYesText() { return yesText; }
     public String getPlaceholder() { return placeholder; }
@@ -87,6 +90,7 @@ public final class FieldArgs {
         private IModel<String> txtModel;
         private Number min;
         private Number max;
+        private Number step;
         private IModel choiceList;
         private String yesText;
         private String noText;
@@ -137,6 +141,10 @@ public final class FieldArgs {
         }
         public Builder max(Number max) {
             this.max = max;
+            return this;
+        }
+        public Builder step(Number step) {
+            this.step = step;
             return this;
         }
         public Builder choiceList(IModel choiceList) {

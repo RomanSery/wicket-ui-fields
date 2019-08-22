@@ -30,7 +30,4 @@ public class TxtField<T> extends BaseUiField<T> {
     public TextField<T> getField() {
         return fieldInput;
     }
-
-
-
 }

@@ -1,17 +1,20 @@
 package org.coderdreams;
 
 import java.time.LocalDateTime;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.event.Broadcast;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.markup.html.form.Form;
 import org.apache.wicket.model.LambdaModel;
-import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.model.Model;
 import org.apache.wicket.model.util.ListModel;
+import org.apache.wicket.model.util.MapModel;
 import org.apache.wicket.request.mapper.parameter.PageParameters;
 import org.coderdreams.wicketfields.FieldArgs;
 import org.coderdreams.wicketfields.event.InitPanelFieldsEvent;
@@ -87,38 +90,34 @@ public class UiFieldsDemo extends WebPage {
 
 
     private void addBoolFields() {
-        fieldsForm.addOrReplace(new AjaxCheckBoxField(FieldArgs.Builder.of(
-                "AjaxCheckBoxField", "AjaxCheckBoxField", LambdaModel.of(formData::getAjaxCheckBoxValue, formData::setAjaxCheckBoxValue)).build()));
+        fieldsForm.addOrReplace(new CheckBoxField(FieldArgs.Builder.of(
+                "CheckBoxField", "CheckBoxField", LambdaModel.of(formData::getCheckBoxValue, formData::setCheckBoxValue)).build()));
+//        fieldsForm.addOrReplace(new AjaxCheckBoxField(FieldArgs.Builder.of(
+//                "AjaxCheckBoxField", "AjaxCheckBoxField", LambdaModel.of(formData::getAjaxCheckBoxValue, formData::setAjaxCheckBoxValue)).build()));
 
+//        fieldsForm.addOrReplace(new CheckBoxReverseField(FieldArgs.Builder.of(
+//                "CheckBoxReverseField", "CheckBoxReverseField", LambdaModel.of(formData::getCheckBoxReverseValue, formData::setCheckBoxReverseValue)).l(2).build()));
+//        fieldsForm.addOrReplace(new AjaxCheckBoxReverseField(FieldArgs.Builder.of(
+//                "AjaxCheckBoxReverseField", "AjaxCheckBoxReverseField", LambdaModel.of(formData::getAjaxCheckBoxReverseValue, formData::setAjaxCheckBoxReverseValue)).l(2).build()));
+
+        fieldsForm.addOrReplace(new CheckBoxGroupField(FieldArgs.Builder.of(
+                "CheckBoxGroupField", "CheckBoxGroupField", LambdaModel.of(formData::getCheckBoxGroupValue, formData::setCheckBoxGroupValue)).build()));
         fieldsForm.addOrReplace(new AjaxCheckBoxGroupField(FieldArgs.Builder.of(
                 "AjaxCheckBoxGroupField", "AjaxCheckBoxGroupField", LambdaModel.of(formData::getAjaxCheckBoxGroupValue, formData::setAjaxCheckBoxGroupValue)).build()));
 
-        fieldsForm.addOrReplace(new AjaxCheckBoxReverseField(FieldArgs.Builder.of(
-                "AjaxCheckBoxReverseField", "AjaxCheckBoxReverseField", LambdaModel.of(formData::getAjaxCheckBoxReverseValue, formData::setAjaxCheckBoxReverseValue)).build()));
-
+        fieldsForm.addOrReplace(new RadioField(FieldArgs.Builder.of(
+                "RadioField", "RadioField", LambdaModel.of(formData::getRadioValue, formData::setRadioValue)).build()));
         fieldsForm.addOrReplace(new AjaxRadioField(FieldArgs.Builder.of(
                 "AjaxRadioField", "AjaxRadioField", LambdaModel.of(formData::getAjaxRadioValue, formData::setAjaxRadioValue)).build()));
 
         fieldsForm.addOrReplace(new AjaxSwitchField(FieldArgs.Builder.of(
                 "AjaxSwitchField", "AjaxSwitchField", LambdaModel.of(formData::getAjaxSwitchValue, formData::setAjaxSwitchValue)).build()));
 
+        fieldsForm.addOrReplace(new YesNoUnknownField(FieldArgs.Builder.of(
+                "YesNoUnknownField", "YesNoUnknownField", LambdaModel.of(formData::getYesNoUnknownValue, formData::setYesNoUnknownValue)).build()));
         fieldsForm.addOrReplace(new AjaxYesNoUnknownField(FieldArgs.Builder.of(
                 "AjaxYesNoUnknownField", "AjaxYesNoUnknownField", LambdaModel.of(formData::getAjaxYesNoUnknownValue, formData::setAjaxYesNoUnknownValue)).build()));
 
-        fieldsForm.addOrReplace(new CheckBoxField(FieldArgs.Builder.of(
-                "CheckBoxField", "CheckBoxField", LambdaModel.of(formData::getCheckBoxValue, formData::setCheckBoxValue)).build()));
-
-        fieldsForm.addOrReplace(new CheckBoxGroupField(FieldArgs.Builder.of(
-                "CheckBoxGroupField", "CheckBoxGroupField", LambdaModel.of(formData::getCheckBoxGroupValue, formData::setCheckBoxGroupValue)).build()));
-
-        fieldsForm.addOrReplace(new CheckBoxReverseField(FieldArgs.Builder.of(
-                "CheckBoxReverseField", "CheckBoxReverseField", LambdaModel.of(formData::getCheckBoxReverseValue, formData::setCheckBoxReverseValue)).build()));
-
-        fieldsForm.addOrReplace(new RadioField(FieldArgs.Builder.of(
-                "RadioField", "RadioField", LambdaModel.of(formData::getRadioValue, formData::setRadioValue)).build()));
-
-        fieldsForm.addOrReplace(new YesNoUnknownField(FieldArgs.Builder.of(
-                "YesNoUnknownField", "YesNoUnknownField", LambdaModel.of(formData::getYesNoUnknownValue, formData::setYesNoUnknownValue)).build()));
     }
 
     private void addDateFields() {
@@ -147,39 +146,69 @@ public class UiFieldsDemo extends WebPage {
 
     private void addDropdownFields() {
 
-        fieldsForm.addOrReplace(new AjaxDropdownField(FieldArgs.Builder.of(
-                "AjaxDropdownField", "AjaxDropdownField", LambdaModel.of(formData::getAjaxDropdownValue, formData::setAjaxDropdownValue)).choiceList(new ListModel(List.of("choice1", "choice2", "choice3"))).build()));
+        fieldsForm.addOrReplace(new DropdownField<State>(FieldArgs.Builder.of(
+                "DropdownField", "DropdownField", LambdaModel.of(formData::getDropdownValue, formData::setDropdownValue)).choiceList(new ListModel(State.VALUES)).cr(new StateChoiceRenderer()).build()));
 
-        fieldsForm.addOrReplace(new AjaxGroupedDropdownField(FieldArgs.Builder.of(
-                "AjaxGroupedDropdownField", "AjaxGroupedDropdownField", LambdaModel.of(formData::getAjaxGroupedDropdownValue, formData::setAjaxGroupedDropdownValue)).build()));
+        fieldsForm.addOrReplace(new AjaxDropdownField<State>(FieldArgs.Builder.of(
+                "AjaxDropdownField", "AjaxDropdownField", LambdaModel.of(formData::getAjaxDropdownValue, formData::setAjaxDropdownValue))
+                .choiceList(new ListModel(State.VALUES)).cr(new StateChoiceRenderer()).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxDropdownField onFieldChanged", formData.getAjaxDropdownValue() != null ? formData.getAjaxDropdownValue().getAbbreviation() : "");
+            }
+        });
 
-        fieldsForm.addOrReplace(new AjaxMultiDropdownField(FieldArgs.Builder.of(
-                "AjaxMultiDropdownField", "AjaxMultiDropdownField", LambdaModel.of(formData::getAjaxMultiDropdownValue, formData::setAjaxMultiDropdownValue)).choiceList(new ListModel(List.of("choice1", "choice2", "choice3"))).build()));
+        fieldsForm.addOrReplace(new MultiDropdownField<State>(FieldArgs.Builder.of(
+                "MultiDropdownField", "MultiDropdownField", LambdaModel.of(formData::getMultiDropdownValue, formData::setMultiDropdownValue)).choiceList(new ListModel(State.VALUES)).cr(new StateChoiceRenderer()).build()));
 
-        fieldsForm.addOrReplace(new DropdownField(FieldArgs.Builder.of(
-                "DropdownField", "DropdownField", LambdaModel.of(formData::getDropdownValue, formData::setDropdownValue)).choiceList(new ListModel(List.of("choice1", "choice2", "choice3"))).build()));
+        fieldsForm.addOrReplace(new AjaxMultiDropdownField<State>(FieldArgs.Builder.of(
+                "AjaxMultiDropdownField", "AjaxMultiDropdownField", LambdaModel.of(formData::getAjaxMultiDropdownValue, formData::setAjaxMultiDropdownValue)).choiceList(new ListModel(State.VALUES)).cr(new StateChoiceRenderer()).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxMultiDropdownField onFieldChanged", StringUtils.join(formData.getAjaxMultiDropdownValue(), ","));
+            }
+        });
+
+
 
         fieldsForm.addOrReplace(new GroupedDropdownField(FieldArgs.Builder.of(
-                "GroupedDropdownField", "GroupedDropdownField", LambdaModel.of(formData::getGroupedDropdownValue, formData::setGroupedDropdownValue)).build()));
+                "GroupedDropdownField", "GroupedDropdownField", LambdaModel.of(formData::getGroupedDropdownValue, formData::setGroupedDropdownValue)).choiceList(getGroupedChoices()).r(5).build()));
 
-        fieldsForm.addOrReplace(new MultiDropdownField(FieldArgs.Builder.of(
-                "MultiDropdownField", "MultiDropdownField", LambdaModel.of(formData::getMultiDropdownValue, formData::setMultiDropdownValue)).choiceList(new ListModel(List.of("choice1", "choice2", "choice3"))).build()));
+        fieldsForm.addOrReplace(new AjaxGroupedDropdownField(FieldArgs.Builder.of(
+                "AjaxGroupedDropdownField", "AjaxGroupedDropdownField", LambdaModel.of(formData::getAjaxGroupedDropdownValue, formData::setAjaxGroupedDropdownValue)).choiceList(getGroupedChoices()).r(5).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxGroupedDropdownField onFieldChanged", formData.getAjaxGroupedDropdownValue());
+            }
+        });
+
+
     }
 
     private void addNumericFields() {
 
-        fieldsForm.addOrReplace(new AjaxMoneyField(FieldArgs.Builder.of(
-                "AjaxMoneyField", "AjaxMoneyField", LambdaModel.of(formData::getAjaxMoneyValue, formData::setAjaxMoneyValue)).build()));
-
-        fieldsForm.addOrReplace(new AjaxNumberSpinnerField(FieldArgs.Builder.of(
-                "AjaxNumberSpinnerField", "AjaxNumberSpinnerField", LambdaModel.of(formData::getAjaxNumberSpinnerValue, formData::setAjaxNumberSpinnerValue)).build()));
-
         fieldsForm.addOrReplace(new MoneyField(FieldArgs.Builder.of(
                 "MoneyField", "MoneyField", LambdaModel.of(formData::getMoneyValue, formData::setMoneyValue)).build()));
 
-        fieldsForm.addOrReplace(new NumberSpinnerField(FieldArgs.Builder.of(
-                "NumberSpinnerField", "NumberSpinnerField", LambdaModel.of(formData::getNumberSpinnerValue, formData::setNumberSpinnerValue)).build()));
+        fieldsForm.addOrReplace(new AjaxMoneyField(FieldArgs.Builder.of(
+                "AjaxMoneyField", "AjaxMoneyField", LambdaModel.of(formData::getAjaxMoneyValue, formData::setAjaxMoneyValue)).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxMoneyField onFieldChanged", formData.getAjaxMoneyValue() != null ? formData.getAjaxMoneyValue().toString() : "");
+            }
+        });
 
+        fieldsForm.addOrReplace(new NumberSpinnerField<Integer>(FieldArgs.Builder.of(
+                "NumberSpinnerField", "NumberSpinnerField", LambdaModel.of(formData::getNumberSpinnerValue, formData::setNumberSpinnerValue)).inputType(Integer.class).max(10).build()));
+
+        fieldsForm.addOrReplace(new AjaxNumberSpinnerField<Double>(FieldArgs.Builder.of(
+                "AjaxNumberSpinnerField", "AjaxNumberSpinnerField", LambdaModel.of(formData::getAjaxNumberSpinnerValue, formData::setAjaxNumberSpinnerValue))
+                .inputType(Double.class).step(0.5).max(5.0).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxNumberSpinnerField onFieldChanged", formData.getAjaxNumberSpinnerValue() != null ? formData.getAjaxNumberSpinnerValue().toString() : "");
+            }
+        });
     }
 
     private void addTxtFields() {
@@ -194,33 +223,41 @@ public class UiFieldsDemo extends WebPage {
         });
 
         fieldsForm.addOrReplace(new AjaxTxtField<String>(FieldArgs.Builder.of(
-                "AjaxTxtField", "AjaxTxtField", LambdaModel.of(formData::getAjaxTxtValue, formData::setAjaxTxtValue)).build()) {
+                "AjaxTxtField", "AjaxTxtField", LambdaModel.of(formData::getAjaxTxtValue, formData::setAjaxTxtValue)).propertiesId("AjaxTxtField").build()) {
             @Override
             public void onFieldChanged(AjaxRequestTarget target) {
                 showToast(target, "AjaxTxtField onFieldChanged", formData.getAjaxTxtValue());
             }
         });
 
-        fieldsForm.addOrReplace(new LabelField(FieldArgs.Builder.of(
-                "LabelField", "LabelField", LambdaModel.of(() -> DateUtils.format(LocalDateTime.now()))).build()));
+        fieldsForm.addOrReplace(new LabelField<String>(FieldArgs.Builder.of(
+                "LabelField", "LabelField", LambdaModel.of(() -> DateUtils.format(LocalDateTime.now()))).propertiesId("LabelField").build()));
 
-        fieldsForm.addOrReplace(new LinkField(FieldArgs.Builder.of(
-                "LinkField", "LinkField", null).pageClass(UiFieldsDemo.class).txtModel(Model.of("Demo page")).build()));
+        fieldsForm.addOrReplace(new LinkField<UiFieldsDemo>(FieldArgs.Builder.of(
+                "LinkField", "LinkField", null).pageClass(UiFieldsDemo.class).txtModel(Model.of("Demo page")).propertiesId("LinkField").build()));
 
         fieldsForm.addOrReplace(new TextAreaField(FieldArgs.Builder.of(
-                "TextAreaField", "TextAreaField", LambdaModel.of(formData::getTextAreaValue, formData::setTextAreaValue)).build()));
+                "TextAreaField", "TextAreaField", LambdaModel.of(formData::getTextAreaValue, formData::setTextAreaValue)).propertiesId("TextAreaField").build()));
 
         fieldsForm.addOrReplace(new TextAreaWithCounterField(FieldArgs.Builder.of(
                 "TextAreaWithCounterField", "TextAreaWithCounterField", LambdaModel.of(formData::getTextAreaWithCounterValue, formData::setTextAreaWithCounterValue))
-                .maxLength(200).build()));
+                .maxLength(200).propertiesId("TextAreaWithCounterField").build()));
 
         fieldsForm.addOrReplace(new TxtField<String>(FieldArgs.Builder.of(
-                "TxtField", "TxtField", LambdaModel.of(formData::getTxtValue, formData::setTxtValue)).build()));
+                "TxtField", "TxtField", LambdaModel.of(formData::getTxtValue, formData::setTxtValue)).propertiesId("TxtField").build()));
 
     }
 
 
     private void showToast(AjaxRequestTarget target, String heading, String txt) {
         target.appendJavaScript("showToastMsg('"+ StringEscapeUtils.escapeEcmaScript(heading)+"', '"+StringEscapeUtils.escapeEcmaScript(txt)+"');");
+    }
+
+    private MapModel<String, List<String>> getGroupedChoices() {
+        Map<String, List<String>> choices = new HashMap();
+        choices.put("Group A", List.of("choice 1", "choice 2", "choice 3", "choice 4"));
+        choices.put("Group B", List.of("choice 5", "choice 6"));
+        choices.put("Group C", List.of("choice 7", "choice 8", "choice 9"));
+        return new MapModel<String, List<String>>(choices);
     }
 }

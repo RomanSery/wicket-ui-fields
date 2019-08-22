@@ -36,4 +36,5 @@ public class LabelField<T> extends BaseUiField<T> {
 	public FormComponent<T> getField() {
 		return null;
 	}
+
 }

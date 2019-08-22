@@ -11,6 +11,7 @@ public class NumberSpinnerField<T extends Number & Comparable<T>> extends BaseUi
 	private NumberTextField<T> fieldInput;
 	private T min;
 	private T max;
+	private T step;
 
     public NumberSpinnerField(FieldArgs args) {
         super(args);
@@ -20,6 +21,7 @@ public class NumberSpinnerField<T extends Number & Comparable<T>> extends BaseUi
     protected void assignFromArgs(FieldArgs args) {
         this.min = (T) args.getMin();
         this.max = (T) args.getMax();
+		this.step = (T) args.getStep();
     }
 
 	@Override
@@ -29,6 +31,7 @@ public class NumberSpinnerField<T extends Number & Comparable<T>> extends BaseUi
 		fieldInput.setOutputMarkupId(true);
 		fieldInput.setMinimum(min);
 		fieldInput.setMaximum(max);
+		fieldInput.setStep(step);
         addOrReplace(fieldInput);
 	}
 
@@ -41,5 +44,6 @@ public class NumberSpinnerField<T extends Number & Comparable<T>> extends BaseUi
 	public TextField<T> getField() {
 		return fieldInput;
 	}
+
 
 }

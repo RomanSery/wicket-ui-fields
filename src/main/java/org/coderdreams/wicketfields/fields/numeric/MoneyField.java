@@ -55,4 +55,5 @@ public class MoneyField extends BaseUiField<BigDecimal> {
     public TextField<BigDecimal> getField() {
         return fieldInput;
     }
+
 }

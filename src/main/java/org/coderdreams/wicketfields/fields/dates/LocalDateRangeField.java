@@ -35,4 +35,5 @@ public class LocalDateRangeField extends BaseUiField<LocalDateRangeModel> {
 	public FormComponent<LocalDateRangeModel> getField() {
 		return null;
 	}
+
 }

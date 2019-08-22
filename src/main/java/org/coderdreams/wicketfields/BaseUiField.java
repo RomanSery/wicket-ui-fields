@@ -41,7 +41,7 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
     private final static String markup =
                     "<wicket:panel>" +
                     "<div class=\"form-group row\">" +
-                    "   <label class=\"control-label col-sm-{LCLASS}\"> <span wicket:id=\"fieldLabel\"></span> </label>" +
+                    "   <label class=\"col-form-label col-sm-{LCLASS}\"> <span wicket:id=\"fieldLabel\"></span> </label>" +
                     "   <div class=\"{RCLASS}\">{INNERHTML} {DISABLEDHTML}</div>" +
                     "</div>" +
                     "</wicket:panel>";
