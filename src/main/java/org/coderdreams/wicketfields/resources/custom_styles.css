@@ -1,32 +1,7 @@
 
 
-input[type=checkbox].ace-checkbox-2 + .lbl::before,
-input[type=radio].ace-checkbox-2 + .lbl::before {
-	margin-right: 5px;
-	margin-top: -2px;
-}
-.lbl-checkbox {
-	padding-top: 5px;
-}
-
-.control-displayValue {
-	padding-top: 6px;
-	word-wrap:break-word
-}
-
-/* this is necessary so that the dropdown datepicker will appear above radio buttons if they happen to be overlapping,
-because the ace default sets the z-index for the radio buttons as 12. */
-.datepicker-dropdown {
-	z-index: 20 !important;
-}
-
 div.popover {
 	width: 275px;
-}
-
-.datepicker,
-.date-picker {
-	z-index: 10001 !important;
 }
 
 @media only screen and (max-width: 580px) {
@@ -89,5 +64,5 @@ div.select2-container {
 }
 
 .bootstrap-datetimepicker-widget{
-	z-index: 4 !important;
+    z-index: 15001 !important;
 }

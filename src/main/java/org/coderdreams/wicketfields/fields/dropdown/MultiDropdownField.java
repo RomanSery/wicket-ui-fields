@@ -4,7 +4,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang3.StringUtils;
-import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.markup.html.form.ListMultipleChoice;
 import org.apache.wicket.model.IModel;
@@ -17,7 +16,6 @@ public class MultiDropdownField<T> extends BaseUiField<List<T>> {
 
 	private ListMultipleChoice<T> fieldInput;
 	protected IModel<? extends List<? extends T>> choiceList;
-	private String placeholder;
 	private IModel<List<T>> listModel;
 
     public MultiDropdownField(FieldArgs args) {
@@ -26,7 +24,6 @@ public class MultiDropdownField<T> extends BaseUiField<List<T>> {
 
     @Override
     protected void assignFromArgs(FieldArgs args) {
-        this.placeholder = args.getPlaceholder() != null ? args.getPlaceholder() : "select some";
         this.choiceList = args.getChoiceList();
         this.listModel = args.getModel();
     }
@@ -35,23 +32,9 @@ public class MultiDropdownField<T> extends BaseUiField<List<T>> {
 	protected void initField() {
 		
 		if(cr != null) {
-            fieldInput = new ListMultipleChoice<T>("fieldInput", listModel, choiceList, cr) {
-                private static final long serialVersionUID = 1L;
-                @Override
-                protected void onComponentTag(final ComponentTag tag) {
-                    super.onComponentTag(tag);
-                    tag.put("data-placeholder", !StringUtils.isBlank(placeholder) ? placeholder : "select");
-                }
-            };
+            fieldInput = new ListMultipleChoice<T>("fieldInput", listModel, choiceList, cr);
         } else {
-            fieldInput = new ListMultipleChoice<T>("fieldInput", listModel, choiceList) {
-                private static final long serialVersionUID = 1L;
-                @Override
-                protected void onComponentTag(final ComponentTag tag) {
-                    super.onComponentTag(tag);
-                    tag.put("data-placeholder", !StringUtils.isBlank(placeholder) ? placeholder : "select");
-                }
-            };
+            fieldInput = new ListMultipleChoice<T>("fieldInput", listModel, choiceList);
         }
 
 		fieldInput.setOutputMarkupId(true);

@@ -135,7 +135,8 @@ public class UiFieldsDemo extends WebPage {
         boolCont.addOrReplace(new CheckBoxField(FieldArgs.Builder.of(
                 "CheckBoxField", "CheckBoxField", LambdaModel.of(formData::getCheckBoxValue, formData::setCheckBoxValue)).propertiesId("CheckBoxField").isEnabledModel(boolFieldsEnabledModel).build()));
         boolCont.addOrReplace(new AjaxCheckBoxField(FieldArgs.Builder.of(
-                "AjaxCheckBoxField", "AjaxCheckBoxField", LambdaModel.of(formData::getAjaxCheckBoxValue, formData::setAjaxCheckBoxValue)).propertiesId("AjaxCheckBoxField").isEnabledModel(boolFieldsEnabledModel).build()) {
+                "AjaxCheckBoxField", "AjaxCheckBoxField", LambdaModel.of(formData::getAjaxCheckBoxValue, formData::setAjaxCheckBoxValue))
+                .propertiesId("AjaxCheckBoxField").isEnabledModel(boolFieldsEnabledModel).build()) {
             @Override
             public void onFieldChanged(AjaxRequestTarget target) {
                 showToast(target, "AjaxCheckBoxField onFieldChanged", BooleanUtils.toStringOnOff(formData.getAjaxCheckBoxValue()));
@@ -159,7 +160,8 @@ public class UiFieldsDemo extends WebPage {
         boolCont.addOrReplace(new RadioField(FieldArgs.Builder.of(
                 "RadioField", "RadioField", LambdaModel.of(formData::getRadioValue, formData::setRadioValue)).propertiesId("RadioField").isEnabledModel(boolFieldsEnabledModel).build()));
         boolCont.addOrReplace(new AjaxRadioField(FieldArgs.Builder.of(
-                "AjaxRadioField", "AjaxRadioField", LambdaModel.of(formData::getAjaxRadioValue, formData::setAjaxRadioValue)).propertiesId("AjaxRadioField").isEnabledModel(boolFieldsEnabledModel).build()) {
+                "AjaxRadioField", "AjaxRadioField", LambdaModel.of(formData::getAjaxRadioValue, formData::setAjaxRadioValue)).propertiesId("AjaxRadioField")
+                .isEnabledModel(boolFieldsEnabledModel).yesText("Public").noText("Private").build()) {
             @Override
             public void onFieldChanged(AjaxRequestTarget target) {
                 showToast(target, "AjaxRadioField onFieldChanged", BooleanUtils.toStringOnOff(formData.getAjaxRadioValue()));

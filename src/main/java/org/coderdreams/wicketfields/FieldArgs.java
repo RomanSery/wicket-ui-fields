@@ -23,7 +23,6 @@ public final class FieldArgs {
     private final Number step;
     private final String yesText;
     private final String noText;
-    private final String placeholder;
     private final int rows;
     private final int maxLength;
     private final String markupId;
@@ -49,7 +48,6 @@ public final class FieldArgs {
         this.txtModel = builder.txtModel;
         this.rows = builder.rows;
         this.maxLength = builder.maxLength;
-        this.placeholder = builder.placeholder;
         this.pageClass = builder.pageClass;
         this.markupId = builder.markupId;
         this.forceDisable = builder.forceDisable;
@@ -70,7 +68,6 @@ public final class FieldArgs {
     public Number getStep() { return step; }
     public IModel getChoiceList() { return choiceList; }
     public String getYesText() { return yesText; }
-    public String getPlaceholder() { return placeholder; }
     public String getNoText() { return noText; }
     public IModel<String> getTxtModel() { return txtModel; }
     public int getRows() { return rows; }
@@ -100,7 +97,6 @@ public final class FieldArgs {
         private String noText;
         private int rows = 3;
         private int maxLength;
-        private String placeholder;
         private String markupId;
         private boolean forceDisable;
         private boolean dontDisplayClearOpt;
@@ -163,11 +159,6 @@ public final class FieldArgs {
             this.yesText = yesText;
             return this;
         }
-        public Builder placeholder(String placeholder) {
-            this.placeholder = placeholder;
-            return this;
-        }
-
         public Builder noText(String noText) {
             this.noText = noText;
             return this;
