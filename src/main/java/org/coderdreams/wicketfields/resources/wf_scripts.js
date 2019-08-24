@@ -8,7 +8,6 @@ let wicketUiFieldScripts = {
 		wicketUiFieldScripts.initSelect2();
 		wicketUiFieldScripts.initPopoverScripts();
 		wicketUiFieldScripts.initDatepicker();
-		wicketUiFieldScripts.initDateTimepicker();
 		wicketUiFieldScripts.initCurrencyScripts();
 
 		$(".txt-char-counter").each(function( index ) {
@@ -16,8 +15,6 @@ let wicketUiFieldScripts = {
 		});
 
 		$('span.select2-selection--multiple').addClass('col-xs-10');
-
-
 	},
 
 	initPopoverScripts: function () {
@@ -127,76 +124,24 @@ let wicketUiFieldScripts = {
 	initDatepicker: function () {
 
 		$('.date-picker').datetimepicker({
+			showClear: true,
 			format: 'L'
 		});
 
-		/*
-		let vertPos;
-
-		$('.date-picker').each(function(index){
-			if($(this).parents(".modal").length > 0){
-				vertPos = 'bottom';
-			} else {
-				vertPos = 'auto';
-			}
-
-			$(this).datetimepicker({
-				showClear: true,
-				widgetPositioning: {
-					horizontal: 'auto',
-					vertical: vertPos
-				},
-				format: 'MM/DD/YYYY'
-			}).on("dp.change", function (e) {
-				const d = new Date(e.date);
-				if (d.getFullYear() < 1000) {
-					d.setFullYear(d.getFullYear() + 2000);
-					$(this).data("DateTimePicker").date(d);
-				}
-			});
-		});
-		*/
-
-	},
-
-	initDateTimepicker: function () {
-		$('.date-time-picker').datetimepicker();
-
-		$('.date-time-only-picker').datetimepicker({
-			format: 'LT'
-		});
-
-		$('.date-month-only-picker').datetimepicker({
-			format: 'MM/DD'
-		});
-
-		/*
-		$('.date-time-picker').datetimepicker({
+		$('.date-time-picker').datetimepicker( {
 			showClear: true
-		}).on('dp.change', function(e) {
-			const d = new Date(e.date);
-			if (d.getFullYear() < 1000) {
-				d.setFullYear(d.getFullYear() + 2000);
-				$(this).data("DateTimePicker").date(d);
-			}
-			if (e.oldDate === null) {
-				$(this).data('DateTimePicker').date(new Date());
-			}
 		});
 
 		$('.date-time-only-picker').datetimepicker({
 			showClear: true,
-			toolbarPlacement: 'bottom',
 			format: 'LT'
 		});
-
 
 		$('.date-month-only-picker').datetimepicker({
 			showClear: true,
 			format: 'MM/DD'
 		});
 
-		 */
 	},
 
 	initCharacterCounter: function (maxLength, countMsgId, fieldId) {
