@@ -11,6 +11,7 @@ import java.util.List;
 
 import org.coderdreams.wicketfields.model.CheckBoxGroupModel;
 import org.coderdreams.wicketfields.model.LocalDateRangeModel;
+import org.coderdreams.wicketfields.model.YesNoUnknownChoice;
 
 public class DemoFormObj implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -35,16 +36,21 @@ public class DemoFormObj implements Serializable {
     private Integer numberSpinnerValue;
 
     private Boolean ajaxCheckBoxValue;
-    private List<CheckBoxGroupModel> ajaxCheckBoxGroupValue;
     private Boolean ajaxCheckBoxReverseValue;
     private Boolean ajaxRadioValue;
     private Boolean ajaxSwitchValue;
-    private Boolean ajaxYesNoUnknownValue;
+    private YesNoUnknownChoice ajaxYesNoUnknownValue;
     private Boolean checkBoxValue;
-    private List<CheckBoxGroupModel> checkBoxGroupValue;
     private Boolean checkBoxReverseValue;
     private Boolean radioValue;
-    private Boolean yesNoUnknownValue;
+    private YesNoUnknownChoice yesNoUnknownValue;
+    private Boolean group1Choice;
+    private Boolean group2Choice;
+    private Boolean group3Choice;
+
+    private Boolean group4Choice;
+    private Boolean group5Choice;
+    private Boolean group6Choice;
 
     private State ajaxDropdownValue;
     private String ajaxGroupedDropdownValue;
@@ -192,14 +198,6 @@ public class DemoFormObj implements Serializable {
         this.ajaxCheckBoxValue = ajaxCheckBoxValue;
     }
 
-    public List<CheckBoxGroupModel> getAjaxCheckBoxGroupValue() {
-        return ajaxCheckBoxGroupValue;
-    }
-
-    public void setAjaxCheckBoxGroupValue(List<CheckBoxGroupModel> ajaxCheckBoxGroupValue) {
-        this.ajaxCheckBoxGroupValue = ajaxCheckBoxGroupValue;
-    }
-
     public Boolean getAjaxCheckBoxReverseValue() {
         return ajaxCheckBoxReverseValue;
     }
@@ -224,11 +222,11 @@ public class DemoFormObj implements Serializable {
         this.ajaxSwitchValue = ajaxSwitchValue;
     }
 
-    public Boolean getAjaxYesNoUnknownValue() {
+    public YesNoUnknownChoice getAjaxYesNoUnknownValue() {
         return ajaxYesNoUnknownValue;
     }
 
-    public void setAjaxYesNoUnknownValue(Boolean ajaxYesNoUnknownValue) {
+    public void setAjaxYesNoUnknownValue(YesNoUnknownChoice ajaxYesNoUnknownValue) {
         this.ajaxYesNoUnknownValue = ajaxYesNoUnknownValue;
     }
 
@@ -238,14 +236,6 @@ public class DemoFormObj implements Serializable {
 
     public void setCheckBoxValue(Boolean checkBoxValue) {
         this.checkBoxValue = checkBoxValue;
-    }
-
-    public List<CheckBoxGroupModel> getCheckBoxGroupValue() {
-        return checkBoxGroupValue;
-    }
-
-    public void setCheckBoxGroupValue(List<CheckBoxGroupModel> checkBoxGroupValue) {
-        this.checkBoxGroupValue = checkBoxGroupValue;
     }
 
     public Boolean getCheckBoxReverseValue() {
@@ -264,11 +254,11 @@ public class DemoFormObj implements Serializable {
         this.radioValue = radioValue;
     }
 
-    public Boolean getYesNoUnknownValue() {
+    public YesNoUnknownChoice getYesNoUnknownValue() {
         return yesNoUnknownValue;
     }
 
-    public void setYesNoUnknownValue(Boolean yesNoUnknownValue) {
+    public void setYesNoUnknownValue(YesNoUnknownChoice yesNoUnknownValue) {
         this.yesNoUnknownValue = yesNoUnknownValue;
     }
 
@@ -318,5 +308,53 @@ public class DemoFormObj implements Serializable {
 
     public void setMultiDropdownValue(List<State> multiDropdownValue) {
         this.multiDropdownValue = multiDropdownValue;
+    }
+
+    public Boolean getGroup1Choice() {
+        return group1Choice;
+    }
+
+    public void setGroup1Choice(Boolean group1Choice) {
+        this.group1Choice = group1Choice;
+    }
+
+    public Boolean getGroup2Choice() {
+        return group2Choice;
+    }
+
+    public void setGroup2Choice(Boolean group2Choice) {
+        this.group2Choice = group2Choice;
+    }
+
+    public Boolean getGroup3Choice() {
+        return group3Choice;
+    }
+
+    public void setGroup3Choice(Boolean group3Choice) {
+        this.group3Choice = group3Choice;
+    }
+
+    public Boolean getGroup4Choice() {
+        return group4Choice;
+    }
+
+    public void setGroup4Choice(Boolean group4Choice) {
+        this.group4Choice = group4Choice;
+    }
+
+    public Boolean getGroup5Choice() {
+        return group5Choice;
+    }
+
+    public void setGroup5Choice(Boolean group5Choice) {
+        this.group5Choice = group5Choice;
+    }
+
+    public Boolean getGroup6Choice() {
+        return group6Choice;
+    }
+
+    public void setGroup6Choice(Boolean group6Choice) {
+        this.group6Choice = group6Choice;
     }
 }

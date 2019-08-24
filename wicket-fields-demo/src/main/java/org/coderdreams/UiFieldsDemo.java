@@ -1,10 +1,12 @@
 package org.coderdreams;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang3.BooleanUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.text.StringEscapeUtils;
 import org.apache.wicket.ajax.AjaxRequestTarget;
@@ -20,13 +22,11 @@ import org.coderdreams.wicketfields.FieldArgs;
 import org.coderdreams.wicketfields.event.InitPanelFieldsEvent;
 import org.coderdreams.wicketfields.fields.bool.AjaxCheckBoxField;
 import org.coderdreams.wicketfields.fields.bool.AjaxCheckBoxGroupField;
-import org.coderdreams.wicketfields.fields.bool.AjaxCheckBoxReverseField;
 import org.coderdreams.wicketfields.fields.bool.AjaxRadioField;
 import org.coderdreams.wicketfields.fields.bool.AjaxSwitchField;
 import org.coderdreams.wicketfields.fields.bool.AjaxYesNoUnknownField;
 import org.coderdreams.wicketfields.fields.bool.CheckBoxField;
 import org.coderdreams.wicketfields.fields.bool.CheckBoxGroupField;
-import org.coderdreams.wicketfields.fields.bool.CheckBoxReverseField;
 import org.coderdreams.wicketfields.fields.bool.RadioField;
 import org.coderdreams.wicketfields.fields.bool.YesNoUnknownField;
 import org.coderdreams.wicketfields.fields.dates.AjaxLocalDateField;
@@ -54,6 +54,7 @@ import org.coderdreams.wicketfields.fields.text.TextAreaField;
 import org.coderdreams.wicketfields.fields.text.TextAreaWithCounterField;
 import org.coderdreams.wicketfields.fields.text.TxtField;
 import org.coderdreams.wicketfields.form.SingleClickIndicatingAjaxButton;
+import org.coderdreams.wicketfields.model.CheckBoxGroupModel;
 import org.coderdreams.wicketfields.resources.UiFieldsBehavior;
 import org.coderdreams.wicketfields.util.DateUtils;
 
@@ -92,31 +93,55 @@ public class UiFieldsDemo extends WebPage {
     private void addBoolFields() {
         fieldsForm.addOrReplace(new CheckBoxField(FieldArgs.Builder.of(
                 "CheckBoxField", "CheckBoxField", LambdaModel.of(formData::getCheckBoxValue, formData::setCheckBoxValue)).build()));
-//        fieldsForm.addOrReplace(new AjaxCheckBoxField(FieldArgs.Builder.of(
-//                "AjaxCheckBoxField", "AjaxCheckBoxField", LambdaModel.of(formData::getAjaxCheckBoxValue, formData::setAjaxCheckBoxValue)).build()));
-
-//        fieldsForm.addOrReplace(new CheckBoxReverseField(FieldArgs.Builder.of(
-//                "CheckBoxReverseField", "CheckBoxReverseField", LambdaModel.of(formData::getCheckBoxReverseValue, formData::setCheckBoxReverseValue)).l(2).build()));
-//        fieldsForm.addOrReplace(new AjaxCheckBoxReverseField(FieldArgs.Builder.of(
-//                "AjaxCheckBoxReverseField", "AjaxCheckBoxReverseField", LambdaModel.of(formData::getAjaxCheckBoxReverseValue, formData::setAjaxCheckBoxReverseValue)).l(2).build()));
+        fieldsForm.addOrReplace(new AjaxCheckBoxField(FieldArgs.Builder.of(
+                "AjaxCheckBoxField", "AjaxCheckBoxField", LambdaModel.of(formData::getAjaxCheckBoxValue, formData::setAjaxCheckBoxValue)).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxCheckBoxField onFieldChanged", BooleanUtils.toStringOnOff(formData.getAjaxCheckBoxValue()));
+            }
+        });
 
         fieldsForm.addOrReplace(new CheckBoxGroupField(FieldArgs.Builder.of(
-                "CheckBoxGroupField", "CheckBoxGroupField", LambdaModel.of(formData::getCheckBoxGroupValue, formData::setCheckBoxGroupValue)).build()));
+                "CheckBoxGroupField", "CheckBoxGroupField", new ListModel<CheckBoxGroupModel>(getGroupChoices1())).build()));
         fieldsForm.addOrReplace(new AjaxCheckBoxGroupField(FieldArgs.Builder.of(
-                "AjaxCheckBoxGroupField", "AjaxCheckBoxGroupField", LambdaModel.of(formData::getAjaxCheckBoxGroupValue, formData::setAjaxCheckBoxGroupValue)).build()));
+                "AjaxCheckBoxGroupField", "AjaxCheckBoxGroupField", new ListModel<CheckBoxGroupModel>(getGroupChoices2())).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                List<String> selected = new ArrayList<>();
+                if(BooleanUtils.isTrue(formData.getGroup4Choice())) { selected.add("Choice 1"); }
+                if(BooleanUtils.isTrue(formData.getGroup5Choice())) { selected.add("Choice 2"); }
+                if(BooleanUtils.isTrue(formData.getGroup6Choice())) { selected.add("Choice 3"); }
+                showToast(target, "AjaxCheckBoxGroupField onFieldChanged", StringUtils.join(selected, ", "));
+            }
+        });
 
         fieldsForm.addOrReplace(new RadioField(FieldArgs.Builder.of(
                 "RadioField", "RadioField", LambdaModel.of(formData::getRadioValue, formData::setRadioValue)).build()));
         fieldsForm.addOrReplace(new AjaxRadioField(FieldArgs.Builder.of(
-                "AjaxRadioField", "AjaxRadioField", LambdaModel.of(formData::getAjaxRadioValue, formData::setAjaxRadioValue)).build()));
+                "AjaxRadioField", "AjaxRadioField", LambdaModel.of(formData::getAjaxRadioValue, formData::setAjaxRadioValue)).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxRadioField onFieldChanged", BooleanUtils.toStringOnOff(formData.getAjaxRadioValue()));
+            }
+        });
 
         fieldsForm.addOrReplace(new AjaxSwitchField(FieldArgs.Builder.of(
-                "AjaxSwitchField", "AjaxSwitchField", LambdaModel.of(formData::getAjaxSwitchValue, formData::setAjaxSwitchValue)).build()));
+                "AjaxSwitchField", "AjaxSwitchField", LambdaModel.of(formData::getAjaxSwitchValue, formData::setAjaxSwitchValue)).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxSwitchField onFieldChanged", BooleanUtils.toStringOnOff(formData.getAjaxSwitchValue()));
+            }
+        });
 
         fieldsForm.addOrReplace(new YesNoUnknownField(FieldArgs.Builder.of(
                 "YesNoUnknownField", "YesNoUnknownField", LambdaModel.of(formData::getYesNoUnknownValue, formData::setYesNoUnknownValue)).build()));
         fieldsForm.addOrReplace(new AjaxYesNoUnknownField(FieldArgs.Builder.of(
-                "AjaxYesNoUnknownField", "AjaxYesNoUnknownField", LambdaModel.of(formData::getAjaxYesNoUnknownValue, formData::setAjaxYesNoUnknownValue)).build()));
+                "AjaxYesNoUnknownField", "AjaxYesNoUnknownField", LambdaModel.of(formData::getAjaxYesNoUnknownValue, formData::setAjaxYesNoUnknownValue)).build()) {
+            @Override
+            public void onFieldChanged(AjaxRequestTarget target) {
+                showToast(target, "AjaxYesNoUnknownField onFieldChanged", formData.getAjaxYesNoUnknownValue() != null ? formData.getAjaxYesNoUnknownValue().getDescription() : "");
+            }
+        });
 
     }
 
@@ -259,5 +284,20 @@ public class UiFieldsDemo extends WebPage {
         choices.put("Group B", List.of("choice 5", "choice 6"));
         choices.put("Group C", List.of("choice 7", "choice 8", "choice 9"));
         return new MapModel<String, List<String>>(choices);
+    }
+
+    private List<CheckBoxGroupModel> getGroupChoices1() {
+        List<CheckBoxGroupModel> choices = new ArrayList<>();
+        choices.add(new CheckBoxGroupModel(LambdaModel.of(formData::getGroup1Choice, formData::setGroup1Choice), "Choice 1"));
+        choices.add(new CheckBoxGroupModel(LambdaModel.of(formData::getGroup2Choice, formData::setGroup2Choice), "Choice 2"));
+        choices.add(new CheckBoxGroupModel(LambdaModel.of(formData::getGroup3Choice, formData::setGroup3Choice), "Choice 3"));
+        return choices;
+    }
+    private List<CheckBoxGroupModel> getGroupChoices2() {
+        List<CheckBoxGroupModel> choices = new ArrayList<>();
+        choices.add(new CheckBoxGroupModel(LambdaModel.of(formData::getGroup4Choice, formData::setGroup4Choice), "Choice 1"));
+        choices.add(new CheckBoxGroupModel(LambdaModel.of(formData::getGroup5Choice, formData::setGroup5Choice), "Choice 2"));
+        choices.add(new CheckBoxGroupModel(LambdaModel.of(formData::getGroup6Choice, formData::setGroup6Choice), "Choice 3"));
+        return choices;
     }
 }

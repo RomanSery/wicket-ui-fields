@@ -22,8 +22,7 @@ public class UiFieldsBehavior extends Behavior {
 
     protected void renderCss(final Component component, final IHeaderResponse response) {
         response.render(css("select2.min.css"));
-        response.render(css("bootstrap-datetimepicker.css"));
-        response.render(css("datepicker.css"));
+        response.render(css("tempusdominus-bootstrap-4.min.css"));
         response.render(css("select2-custom.css"));
         response.render(css("custom_styles.css"));
 
@@ -32,11 +31,10 @@ public class UiFieldsBehavior extends Behavior {
     protected void renderJsScripts(final Component component, final IHeaderResponse response) {
         response.render(js("moment.min.js"));
         response.render(js("select2.min.js"));
-        response.render(js("bootstrap-datepicker.js"));
         response.render(js("jquery.alphanum.js"));
         response.render(js("jquery.maskedinput.min.js"));
         response.render(js("jquery.maskMoney.min.js"));
-        response.render(js("bootstrap-datetimepicker.min.js"));
+        response.render(js("tempusdominus-bootstrap-4.min.js"));
         response.render(js("jquery.inputmask.bundle.min.js"));
         response.render(js("wf_scripts.js"));
     }

@@ -28,7 +28,7 @@ public class LocalDateField extends BaseUiField<LocalDate> {
     @Override protected Class getDefiniteType() { return LocalDate.class; }
     @Override
     protected String getInnerHtml() {
-        return "<div class=\"col-xs-10 wf-localdate-field\" wicket:id=\"fieldInput\" style=\"padding-left:0px;\"></div> ";
+        return "<div class=\"wf-localdate-field\" wicket:id=\"fieldInput\"></div> ";
     }
 
 	@Override

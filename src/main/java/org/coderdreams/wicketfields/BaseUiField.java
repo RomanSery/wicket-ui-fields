@@ -15,6 +15,7 @@ import org.apache.wicket.feedback.IFeedback;
 import org.apache.wicket.markup.ComponentTag;
 import org.apache.wicket.markup.IMarkupCacheKeyProvider;
 import org.apache.wicket.markup.IMarkupResourceStreamProvider;
+import org.apache.wicket.markup.html.WebComponent;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.form.AbstractChoice;
 import org.apache.wicket.markup.html.form.AbstractSingleSelectChoice;
@@ -42,7 +43,7 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
                     "<wicket:panel>" +
                     "<div class=\"form-group row\">" +
                     "   <label class=\"col-form-label col-sm-{LCLASS}\"> <span wicket:id=\"fieldLabel\"></span> </label>" +
-                    "   <div class=\"{RCLASS}\">{INNERHTML} {DISABLEDHTML}</div>" +
+                    "   <div class=\"{RCLASS} {CUSTOMRCLASS}\">{INNERHTML} {DISABLEDHTML} <label class=\"{CNTRL_LBL}\" wicket:id=\"fLabel\"></label></div>" +
                     "</div>" +
                     "</wicket:panel>";
     private final static String disabledHtml = "<div wicket:id=\"fieldInputDisabled\" class=\"col-xs-10\"></div>";
@@ -132,6 +133,17 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
                 getField().add(StringValidator.maximumLength(this.maxLength));
             }
 
+            addOrReplace(new WebComponent("fLabel") {
+                private static final long serialVersionUID = 1L;
+                @Override
+                protected void onComponentTag(final ComponentTag tag) {
+                    super.onComponentTag(tag);
+                    if(hasInputField()) {
+                        tag.put("for", getField().getMarkupId());
+                    }
+                }
+            });
+
             initialize();
         }
 	}
@@ -165,8 +177,8 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
             innerHtml = disabledHtml != null ? disabledHtml : getInnerHtml();
         }
         String str = StringUtils.replaceEach(getBaseMarkup(),
-                new String[]{"{LCLASS}", "{RCLASS}", "{INNERHTML}", "{DISABLEDHTML}"},
-                new String[]{String.valueOf(l), getColRightClass(), innerHtml,
+                new String[]{"{LCLASS}", "{RCLASS}", "{CUSTOMRCLASS}", "{CNTRL_LBL}", "{INNERHTML}", "{DISABLEDHTML}"},
+                new String[]{String.valueOf(l), getColRightClass(), getCustomRightClass(), getControlLblClass(), innerHtml,
                         disabled ? disabledHtml : ""
                 });
 
@@ -296,6 +308,8 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
 	protected boolean hasDisabledLbl() { return true; }
 	protected String getBaseMarkup() { return markup; }
     protected String getColRightClass() { return "col-sm-" + r; }
+    protected String getCustomRightClass() { return ""; }
+    protected String getControlLblClass() { return "control-label"; }
     protected String getDisabledLbl() { return null; }
     protected String customDisabledMsg() { return null; }
     protected Class getDefiniteType() { return null; }

@@ -21,9 +21,11 @@ public class CheckBoxField extends BaseUiField<Boolean> {
 
     @Override protected String getDisabledLbl() { return model == null || model.getObject() == null ? "" : (model.getObject() == true ? "Yes" : "No"); }
     @Override public Class<Boolean> getDefiniteType() { return Boolean.class; }
+    @Override protected String getCustomRightClass() { return "custom-control custom-checkbox"; }
+    @Override protected String getControlLblClass() { return "custom-control-label"; }
     @Override
     protected String getInnerHtml() {
-        return "<input type=\"checkbox\" class=\"wf-checkbox-field\" wicket:id=\"fieldInput\" id=\"customCheck1\" />";
+        return "<input type=\"checkbox\" class=\"custom-control-input wf-checkbox-field\" wicket:id=\"fieldInput\" />";
     }
 
     @Override

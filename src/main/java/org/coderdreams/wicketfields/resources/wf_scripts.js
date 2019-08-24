@@ -125,6 +125,9 @@ let wicketUiFieldScripts = {
 	},
 
 	initDatepicker: function () {
+		$('.date-picker').datetimepicker();
+
+		/*
 		let vertPos;
 
 		$('.date-picker').each(function(index){
@@ -160,9 +163,13 @@ let wicketUiFieldScripts = {
 				}
 			});
 		});
+		*/
+
 	},
 
 	initDateTimepicker: function () {
+		$('.date-time-picker').datetimepicker();
+		/*
 		$('.date-time-picker').datetimepicker({
 			showClear: true,
 			icons: {
@@ -218,6 +225,8 @@ let wicketUiFieldScripts = {
 				close: 'fa fa-times'
 			}, format: 'MM/DD'
 		});
+
+		 */
 	},
 
 	initCharacterCounter: function (maxLength, countMsgId, fieldId) {

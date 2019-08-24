@@ -68,7 +68,7 @@ public class CheckBoxGroupField extends BaseUiField<List<CheckBoxGroupModel>> im
     @Override
     protected String getInnerHtml() {
         return "<span wicket:id=\"chkListView\" class=\"wf-checkbox-group-field\">" +
-                "<label class=\"col-xs-12\"> <input type=\"checkbox\" class=\"ace ace-checkbox-2\" wicket:id=\"chkBox\" /> <span class=\"lbl\" wicket:id=\"lbl\">label</span> </label>" +
+                "<label class=\"col-xs-12\"> <input type=\"checkbox\" wicket:id=\"chkBox\" /> <span class=\"lbl\" wicket:id=\"lbl\">label</span> &nbsp; &nbsp;</label>" +
                 "</span>";
     }
     @Override protected Class getDefiniteType() { return CheckBoxGroupModel.class; }
