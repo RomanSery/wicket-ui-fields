@@ -13,7 +13,7 @@ public class MonthDayTextField extends TextField<MonthDay> implements ITextForma
 	private static final String DEFAULT_PATTERN = "MM/dd";
 	private final IConverter<MonthDay> converter;
 
-	MonthDayTextField(final String id, final IModel<MonthDay> model, IConverter<MonthDay> converter) {
+	protected MonthDayTextField(final String id, final IModel<MonthDay> model, IConverter<MonthDay> converter) {
 		super(id, model, MonthDay.class);
 		this.converter = converter;
 	}

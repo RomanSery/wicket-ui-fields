@@ -53,8 +53,8 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
     protected String fieldLabel;
     private final String propertiesId;
 	private int l = DEF_L, r = DEF_R;
-	
-	private IModel<Boolean> enabledModel;
+
+	private IModel<Boolean> isEnabledModel;
 	private String helpTxt;
     protected String nullChoiceTxt;
     protected IChoiceRenderer cr;
@@ -69,6 +69,7 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
 
         this.forceDisable = args.isForceDisable();
         this.model = args.getModel();
+        this.isEnabledModel = args.getIsEnabledModel();
         this.propertiesId = args.getPropertiesId();
         this.fieldLabel = args.getPropertiesId() == null ? args.getFieldLabel() : getString(propertiesId + ".lbl", null, args.getFieldLabel());
         this.l = args.getL();
@@ -111,12 +112,6 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
             return;
         }
 
-        //TODO
-//        IPanel bp = getParentPanel();
-//		if(bp != null) {
-//            enabledModel = bp.getEnabledModel();
-//        }
-
         boolean baseIsEnabled = baseIsEnabled();
         if(hasDisabledLbl() && !baseIsEnabled) {
             addOrReplace(new Label("fieldInputDisabled", this::getDisabledValue).setEscapeModelStrings(false));
@@ -154,7 +149,7 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
             return false;
         }
 
-        return enabledModel == null ? super.isEnabled() : !enabledModel.getObject();
+        return isEnabledModel == null ? super.isEnabled() : isEnabledModel.getObject();
 	}
 
     public boolean baseIsEnabled() { return isEnabled(); }
@@ -324,8 +319,8 @@ public abstract class BaseUiField<T> extends Panel implements IMarkupResourceStr
     }
     protected String getPopoverClass() { return "popover"; }
 
-    public void setEnabledModel(IModel<Boolean> enabledModel) {
-        this.enabledModel = enabledModel;
+    public void setIsEnabledModel(IModel<Boolean> isEnabledModel) {
+        this.isEnabledModel = isEnabledModel;
     }
     public void setFieldLabel(String fieldLabel) {
         this.fieldLabel = fieldLabel;

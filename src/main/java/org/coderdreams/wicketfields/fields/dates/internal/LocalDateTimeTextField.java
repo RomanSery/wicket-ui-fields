@@ -12,7 +12,7 @@ public class LocalDateTimeTextField extends TextField<LocalDateTime> implements 
 	private static final String DEFAULT_PATTERN = "MM/dd/yyyy h:mm a";
 	private final IConverter<LocalDateTime> converter;
 
-	LocalDateTimeTextField(final String id, final IModel<LocalDateTime> model, IConverter<LocalDateTime> converter) {
+	protected LocalDateTimeTextField(final String id, final IModel<LocalDateTime> model, IConverter<LocalDateTime> converter) {
 		super(id, model, LocalDateTime.class);
 		this.converter = converter;
 	}

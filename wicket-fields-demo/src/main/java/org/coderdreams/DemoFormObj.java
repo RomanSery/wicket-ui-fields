@@ -9,8 +9,6 @@ import java.time.LocalTime;
 import java.time.MonthDay;
 import java.util.List;
 
-import org.coderdreams.wicketfields.model.CheckBoxGroupModel;
-import org.coderdreams.wicketfields.model.LocalDateRangeModel;
 import org.coderdreams.wicketfields.model.YesNoUnknownChoice;
 
 public class DemoFormObj implements Serializable {
@@ -25,7 +23,6 @@ public class DemoFormObj implements Serializable {
     private LocalDate ajaxLocalDateValue;
     private LocalTime ajaxTimeValue;
     private LocalDate localDateValue;
-    private LocalDateRangeModel localDateRangeValue;
     private LocalDateTime localDateTimeValue;
     private MonthDay monthDayValue;
     private LocalTime timeValue;
@@ -123,16 +120,6 @@ public class DemoFormObj implements Serializable {
         this.localDateValue = localDateValue;
     }
 
-    public LocalDateRangeModel getLocalDateRangeValue() {
-        if(localDateRangeValue == null) {
-            localDateRangeValue = new LocalDateRangeModel(null, null);
-        }
-        return localDateRangeValue;
-    }
-
-    public void setLocalDateRangeValue(LocalDateRangeModel localDateRangeValue) {
-        this.localDateRangeValue = localDateRangeValue;
-    }
 
     public LocalDateTime getLocalDateTimeValue() {
         return localDateTimeValue;

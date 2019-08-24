@@ -125,7 +125,10 @@ let wicketUiFieldScripts = {
 	},
 
 	initDatepicker: function () {
-		$('.date-picker').datetimepicker();
+
+		$('.date-picker').datetimepicker({
+			format: 'L'
+		});
 
 		/*
 		let vertPos;
@@ -143,17 +146,6 @@ let wicketUiFieldScripts = {
 					horizontal: 'auto',
 					vertical: vertPos
 				},
-				icons: {
-					time: 'fa fa-clock-o',
-					date: 'fa fa-calendar',
-					up: 'fa fa-chevron-up',
-					down: 'fa fa-chevron-down',
-					previous: 'fa fa-chevron-left',
-					next: 'fa fa-chevron-right',
-					today: 'fa fa-arrows ',
-					clear: 'fa fa-trash',
-					close: 'fa fa-times'
-				},
 				format: 'MM/DD/YYYY'
 			}).on("dp.change", function (e) {
 				const d = new Date(e.date);
@@ -169,20 +161,18 @@ let wicketUiFieldScripts = {
 
 	initDateTimepicker: function () {
 		$('.date-time-picker').datetimepicker();
+
+		$('.date-time-only-picker').datetimepicker({
+			format: 'LT'
+		});
+
+		$('.date-month-only-picker').datetimepicker({
+			format: 'MM/DD'
+		});
+
 		/*
 		$('.date-time-picker').datetimepicker({
-			showClear: true,
-			icons: {
-				time: 'fa fa-clock-o',
-				date: 'fa fa-calendar',
-				up: 'fa fa-chevron-up',
-				down: 'fa fa-chevron-down',
-				previous: 'fa fa-chevron-left',
-				next: 'fa fa-chevron-right',
-				today: 'fa fa-arrows ',
-				clear: 'fa fa-trash',
-				close: 'fa fa-times'
-			}
+			showClear: true
 		}).on('dp.change', function(e) {
 			const d = new Date(e.date);
 			if (d.getFullYear() < 1000) {
@@ -197,33 +187,13 @@ let wicketUiFieldScripts = {
 		$('.date-time-only-picker').datetimepicker({
 			showClear: true,
 			toolbarPlacement: 'bottom',
-			icons: {
-				time: 'fa fa-clock-o',
-				date: 'fa fa-calendar',
-				up: 'fa fa-chevron-up',
-				down: 'fa fa-chevron-down',
-				previous: 'fa fa-chevron-left',
-				next: 'fa fa-chevron-right',
-				today: 'fa fa-arrows ',
-				clear: 'fa fa-trash',
-				close: 'fa fa-times'
-			}, format: 'LT'
+			format: 'LT'
 		});
 
 
 		$('.date-month-only-picker').datetimepicker({
 			showClear: true,
-			icons: {
-				time: 'fa fa-clock-o',
-				date: 'fa fa-calendar',
-				up: 'fa fa-chevron-up',
-				down: 'fa fa-chevron-down',
-				previous: 'fa fa-chevron-left',
-				next: 'fa fa-chevron-right',
-				today: 'fa fa-arrows ',
-				clear: 'fa fa-trash',
-				close: 'fa fa-times'
-			}, format: 'MM/DD'
+			format: 'MM/DD'
 		});
 
 		 */

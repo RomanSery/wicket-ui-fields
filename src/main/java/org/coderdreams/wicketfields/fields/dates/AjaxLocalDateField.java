@@ -39,8 +39,7 @@ public class AjaxLocalDateField extends LocalDateField implements IAjaxUiField {
                         dt = dt.plusYears(2000);
                     }
                     AjaxLocalDateField.this.model.setObject(dt);
-                    getDatePicker().modelChanged();
-                    getDatePicker().getMyDate().modelChanged();
+                    getField().modelChanged();
                     onFieldChanged(target);
                 }
             }

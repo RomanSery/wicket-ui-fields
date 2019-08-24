@@ -13,7 +13,7 @@ public class LocalDateTextField extends TextField<LocalDate> implements ITextFor
 	private final String datePattern;
 	private final IConverter<LocalDate> converter;
 
-	LocalDateTextField(final String id, final IModel<LocalDate> model, final String datePattern) {
+	public LocalDateTextField(final String id, final IModel<LocalDate> model, final String datePattern) {
 		super(id, model, LocalDate.class);
 		this.datePattern = datePattern;
 		converter = new LocalDateConverter();

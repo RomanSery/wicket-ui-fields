@@ -35,8 +35,8 @@ public class AjaxSwitchField extends BaseUiField<Boolean> implements IAjaxUiFiel
 
     @Override protected String getDisabledLbl() { return model == null || model.getObject() == null ? "" : (model.getObject() == true ? "Yes" : "No"); }
     @Override public Class<Boolean> getDefiniteType() { return Boolean.class; }
-	@Override protected String getCustomRightClass() { return "custom-control custom-switch"; }
-	@Override protected String getControlLblClass() { return "custom-control-label"; }
+	@Override protected String getCustomRightClass() { return baseIsEnabled() ? "custom-control custom-switch" : ""; }
+	@Override protected String getControlLblClass() { return baseIsEnabled() ? "custom-control-label" : "control-label"; }
     @Override
     protected String getInnerHtml() {
         return "<input type=\"checkbox\" class=\"custom-control-input wf-switch-field\" wicket:id=\"fieldInput\" />";

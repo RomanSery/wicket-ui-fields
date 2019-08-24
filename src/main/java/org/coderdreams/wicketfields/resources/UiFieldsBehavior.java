@@ -2,6 +2,7 @@ package org.coderdreams.wicketfields.resources;
 
 
 import org.apache.wicket.Component;
+import org.apache.wicket.ajax.AjaxRequestTarget;
 import org.apache.wicket.behavior.Behavior;
 import org.apache.wicket.markup.head.CssHeaderItem;
 import org.apache.wicket.markup.head.CssReferenceHeaderItem;
@@ -41,6 +42,13 @@ public class UiFieldsBehavior extends Behavior {
 
     protected void renderOnDomReadyScript(final Component component, final IHeaderResponse response) {
         response.render(OnDomReadyHeaderItem.forScript("wicketUiFieldScripts.initClientSideScripts()"));
+    }
+
+    public static void clientScripts(AjaxRequestTarget target) {
+        if(target == null) {
+            return;
+        }
+        target.appendJavaScript("wicketUiFieldScripts.initClientSideScripts();");
     }
 
     protected static JavaScriptHeaderItem js(String resource) {

@@ -12,7 +12,7 @@ public class LocalTimeTextField extends TextField<LocalTime> implements ITextFor
 	private static final String DEFAULT_PATTERN = "hh:mm a";
 	private final IConverter<LocalTime> converter;
 
-	LocalTimeTextField(final String id, final IModel<LocalTime> model, IConverter<LocalTime> converter) {
+	protected LocalTimeTextField(final String id, final IModel<LocalTime> model, IConverter<LocalTime> converter) {
 		super(id, model, LocalTime.class);
 		this.converter = converter;
 	}

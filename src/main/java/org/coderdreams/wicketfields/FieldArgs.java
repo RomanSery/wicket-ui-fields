@@ -13,6 +13,7 @@ public final class FieldArgs {
     private final int r;
     private final IModel model;
     private final IModel choiceList;
+    private final IModel<Boolean> isEnabledModel;
     private final IModel<String> txtModel;
     private final IChoiceRenderer cr;
     private final Class inputType;
@@ -36,6 +37,7 @@ public final class FieldArgs {
         this.l = builder.l;
         this.r = builder.r;
         this.model = builder.model;
+        this.isEnabledModel = builder.isEnabledModel;
         this.cr = builder.cr;
         this.inputType = builder.inputType;
         this.min = builder.min;
@@ -60,6 +62,7 @@ public final class FieldArgs {
     public int getL() { return l; }
     public int getR() { return r; }
     public IModel getModel() { return model; }
+    public IModel<Boolean> getIsEnabledModel() { return isEnabledModel; }
     public IChoiceRenderer getCr() { return cr; }
     public Class getInputType() { return inputType; }
     public Number getMin() { return min; }
@@ -81,6 +84,7 @@ public final class FieldArgs {
         private final String id;
         private final String fieldLabel;
         private IModel model;
+        private IModel<Boolean> isEnabledModel;
         private String propertiesId;
         private int l = BaseUiField.DEF_L;
         private int r = BaseUiField.DEF_R;
@@ -113,6 +117,10 @@ public final class FieldArgs {
 
         public Builder model(IModel model) {
             this.model = model;
+            return this;
+        }
+        public Builder isEnabledModel(IModel<Boolean> isEnabledModel) {
+            this.isEnabledModel = isEnabledModel;
             return this;
         }
         public Builder propertiesId(String propertiesId) {
