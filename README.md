@@ -1,6 +1,6 @@
 # wicket-fields - Wicket UI components
 
-[Quick start](https://github.com/RomanSery/wicket-ui-fields#quick-start) | [Documentation](https://github.com/RomanSery/wicket-ui-fields/wiki) | [Code examples](https://github.com/RomanSery/wicket-ui-fields/tree/master/wicket-fields-demo)
+[Quick start](https://github.com/RomanSery/wicket-ui-fields#quick-start) | [Documentation](https://github.com/RomanSery/wicket-ui-fields/wiki) | [Code examples](https://github.com/RomanSery/wicket-ui-fields/tree/master/wicket-fields-demo) | [Screenshots](https://github.com/RomanSery/wicket-ui-fields#screenshots)
 
 ## Requirements
 
@@ -14,6 +14,7 @@
 * [Wicket](https://wicket.apache.org/)  
 * [Select2](https://select2.org/) - For dropdowns
 * [Tempus Dominus](https://tempusdominus.github.io/bootstrap-4/) - For datetime pickers
+
 
 ## Key Features
 
@@ -51,3 +52,11 @@ add(new TxtField<String>(FieldArgs.Builder.of("userFirstName", "First Name", Lam
 // 5. When you are done adding your fields, send the InitPanelFieldsEvent event to notify them to init themselves
 send(this, Broadcast.BREADTH, new InitPanelFieldsEvent(null));
 ```
+
+## Screenshots
+
+![Alt text](wicket-fields-demo/src/main/webapp/screenshots/txt_fields.png)
+![Alt text](wicket-fields-demo/src/main/webapp/screenshots/dropdown_fields.png)
+![Alt text](wicket-fields-demo/src/main/webapp/screenshots/date_fields.png)
+![Alt text](wicket-fields-demo/src/main/webapp/screenshots/numeric_fields.png)
+![Alt text](wicket-fields-demo/src/main/webapp/screenshots/bool_fields.png)
