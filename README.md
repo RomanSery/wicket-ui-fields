@@ -1,6 +1,6 @@
 # wicket-fields - Wicket UI components
 
-[Quick start](https://github.com/RomanSery/wicket-ui-fields#quick-start) | [Documentation](https://github.com/RomanSery/wicket-ui-fields/wiki) | [Code examples](https://github.com/RomanSery/wicket-ui-fields/tree/master/wicket-fields-demo) | [Screenshots](https://github.com/RomanSery/wicket-ui-fields#screenshots)
+[Quick start](https://github.com/RomanSery/wicket-ui-fields#quick-start) | [Documentation](https://github.com/RomanSery/wicket-ui-fields/wiki) | [Demo webapp](https://github.com/RomanSery/wicket-ui-fields/tree/master/wicket-fields-demo) | [Screenshots](https://github.com/RomanSery/wicket-ui-fields#screenshots)
 
 ## Requirements
 
@@ -18,6 +18,7 @@
 
 ## Key Features
 
+* Includes various text, date, dropdown, multi-select, numeric, radio, and checkbox fields
 * Simple, consistent syntax based on the Builder pattern is used to instantiate any type of field  
 * No HTML required, just add a placeholder tag, and the HTML is created for you  
 * All field are easily customizable using .properties files.  Supports multiple locals/environments.
