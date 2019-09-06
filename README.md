@@ -26,6 +26,15 @@
 * Optimized for Wicket page sizes by minimizing number of components created
 * Includes [full sample webapp demonstrating usage of each field](https://github.com/RomanSery/wicket-ui-fields/tree/master/wicket-fields-demo)
 
+## Including from Maven
+
+```xml
+<dependency>
+  <groupId>com.coderdreams</groupId>
+  <artifactId>wicket-fields</artifactId>
+  <version>1.0.0</version>
+</dependency>
+```
 
 ## Quick start
 
