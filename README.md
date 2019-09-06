@@ -1,6 +1,6 @@
 # wicket-fields - Wicket UI components
 
-[Quick start](https://github.com/RomanSery/wicket-ui-fields#quick-start) | [Documentation](https://github.com/RomanSery/wicket-ui-fields/wiki) | [Demo webapp](https://github.com/RomanSery/wicket-ui-fields/tree/master/wicket-fields-demo) | [Screenshots](https://github.com/RomanSery/wicket-ui-fields#screenshots)
+[Quick start](https://github.com/RomanSery/wicket-ui-fields#quick-start) | [Documentation](https://github.com/RomanSery/wicket-ui-fields/wiki) | [Demo webapp](https://github.com/RomanSery/wicket-fields-demo) | [Screenshots](https://github.com/RomanSery/wicket-ui-fields#screenshots)
 
 ## Requirements
 
@@ -24,7 +24,7 @@
 * All field are easily customizable using .properties files.  Supports multiple locals/environments.
 * Easily toggle fields from read-write to read-only 
 * Optimized for Wicket page sizes by minimizing number of components created
-* Includes [full sample webapp demonstrating usage of each field](https://github.com/RomanSery/wicket-ui-fields/tree/master/wicket-fields-demo)
+* Includes [full sample webapp demonstrating usage of each field](https://github.com/RomanSery/wicket-fields-demo)
 
 
 ## Quick start
