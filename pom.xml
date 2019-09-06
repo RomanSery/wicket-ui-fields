@@ -9,7 +9,30 @@
   <version>1.0.0</version>
   <packaging>jar</packaging>
 
-  <name>wicket-fields</name>
+  <licenses>
+    <license>
+      <name>MIT License</name>
+      <url>http://www.opensource.org/licenses/mit-license.php</url>
+    </license>
+  </licenses>
+
+  <developers>
+    <developer>
+      <name>Roman Sery</name>
+      <email>rsery@coderdreams.com</email>
+      <organization>CoderDreams</organization>
+      <organizationUrl>https://www.coderdreams.com</organizationUrl>
+    </developer>
+  </developers>
+
+  <scm>
+    <connection>scm:git:https://github.com/RomanSery/wicket-ui-fields.git</connection>
+    <developerConnection>scm:git:ssh://github.com/RomanSery/wicket-ui-fields.git</developerConnection>
+    <url>https://github.com/RomanSery/wicket-ui-fields/tree/master</url>
+  </scm>
+
+  <name>${project.groupId}:${project.artifactId}</name>
+  <description>Easy to use field components for Wicket that make setting up a UI a breeze</description>
   <url>https://github.com/RomanSery/wicket-ui-fields</url>
 
   <properties>
@@ -75,7 +98,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-source-plugin</artifactId>
-        <version>2.2.1</version>
+        <version>3.1.0</version>
         <executions>
           <execution>
             <id>attach-sources</id>
@@ -88,7 +111,10 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-javadoc-plugin</artifactId>
-        <version>2.9.1</version>
+        <version>3.1.1</version>
+        <configuration>
+          <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>
+        </configuration>
         <executions>
           <execution>
             <id>attach-javadocs</id>
@@ -102,7 +128,7 @@
       <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-gpg-plugin</artifactId>
-        <version>1.5</version>
+        <version>1.6</version>
         <executions>
           <execution>
             <id>sign-artifacts</id>
