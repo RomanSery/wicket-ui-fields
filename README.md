@@ -65,8 +65,8 @@ send(this, Broadcast.BREADTH, new InitPanelFieldsEvent(null));
 
 ## Screenshots
 
-![Alt text](wicket-fields-demo/src/main/webapp/screenshots/txt_fields.png)
-![Alt text](wicket-fields-demo/src/main/webapp/screenshots/dropdown_fields.png)
-![Alt text](wicket-fields-demo/src/main/webapp/screenshots/date_fields.png)
-![Alt text](wicket-fields-demo/src/main/webapp/screenshots/numeric_fields.png)
-![Alt text](wicket-fields-demo/src/main/webapp/screenshots/bool_fields.png)
+![Alt text](https://github.com/RomanSery/wicket-fields-demo/blob/master/src/main/webapp/screenshots/txt_fields.png)
+![Alt text](https://github.com/RomanSery/wicket-fields-demo/blob/master/src/main/webapp/screenshots/dropdown_fields.png)
+![Alt text](https://github.com/RomanSery/wicket-fields-demo/blob/master/src/main/webapp/screenshots/date_fields.png)
+![Alt text](https://github.com/RomanSery/wicket-fields-demo/blob/master/src/main/webapp/screenshots/numeric_fields.png)
+![Alt text](https://github.com/RomanSery/wicket-fields-demo/blob/master/src/main/webapp/screenshots/bool_fields.png)
